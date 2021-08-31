@@ -54,7 +54,7 @@ public class Fichier {
 			System.out.println(sc.next());
 		}*/
 		
-		
+		int i = 0;
 		
 		// Ajout d'un prenom dans le fichier
 		String text = "Simon";
