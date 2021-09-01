@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="651.0" prefWidth="946.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+<AnchorPane prefHeight="586.0" prefWidth="803.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
    <children>
-      <VBox prefHeight="651.0" prefWidth="280.0" />
-      <VBox layoutX="218.0" layoutY="-4.0" prefHeight="660.0" prefWidth="729.0">
+      <HBox alignment="CENTER" layoutX="14.0" prefHeight="586.0" prefWidth="803.0">
          <children>
-            <HBox prefHeight="99.0" prefWidth="585.0" />
-            <HBox prefHeight="569.0" prefWidth="729.0">
+            <ImageView fitHeight="161.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../vote-et-formation-20.jpg" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" prefHeight="586.0" prefWidth="443.0">
                <children>
-                  <TableView prefHeight="407.0" prefWidth="734.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue" textAlignment="CENTER" wrappingWidth="257.5869140625">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sur" textAlignment="CENTER" wrappingWidth="257.5869140625">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="annuair" textAlignment="CENTER" wrappingWidth="257.5869140625">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="33.0" prefWidth="194.0" text="Invite" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="39.0" prefWidth="197.0" text="Administrateur" textAlignment="CENTER">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
                </children>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
+      </HBox>
    </children>
 </AnchorPane>

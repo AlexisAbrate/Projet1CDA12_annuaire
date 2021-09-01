@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,57 +19,53 @@ import java.util.Scanner;
 
 public class Fichier {
 
-	public static void main(String[] args) throws IOException {
-
-
-		Path path = Paths.get("Fichiertxt/annuaire.txt");
-		
-		List<String> liste = new ArrayList<>();
-		
-		// Lire les noms d'un fichier (Methodes de Files)
-		
-		liste = Files.readAllLines(path);
-		
-		System.out.println(liste);
-		
-		afficher(liste);
-		
-		// Lire les noms d'un fichier (Scanner)
-		
-		String nomDuFichier = "Fichiertxt/annuaire.txt";
-		File file = new File(nomDuFichier);
-		
-	//	String nomDuFichierCopie = "Fichiertxt/annuaire_copie.txt";
-	//	File fileCopie = new File(nomDuFichierCopie);
-		
-		Scanner sc = new Scanner(file);
-		
-		while(sc.hasNextLine()) {
-			System.out.println(sc.nextLine()); 
-		}
-		
-		// Lire chaque élément un par un (exemple si l'on veut mettre les donnes d'un objet)  
-		
-		/*while(sc.hasNext()) {
-			System.out.println(sc.next());
-		}*/
-		
-	//	int i = 0;
-		
-		// Ajout d'un prenom dans le fichier
-		String text = "Simon";
-		Files.write(path, text.getBytes(), StandardOpenOption.WRITE,StandardOpenOption.APPEND);
-		
-		// Suppression d'un prenom
-	
-		deleteLine(nomDuFichier, "Loic");
-		
-	
-		
-		sc.close();
-		
-
-	}
+//	public static void main(String[] args) throws IOException {
+//
+//
+//		String nomDuFichier = "Fichiertxt/annuaire.txt";
+//		
+//		List<String> liste = new ArrayList<>();
+//		
+//		liste = initFichier(nomDuFichier);
+//		
+//		
+//		// Lire les noms d'un fichier (Scanner)
+//		
+//		
+////		File file = new File(nomDuFichier);
+////		
+////		String nomDuFichierCopie = "Fichiertxt/annuaire_copie.txt";
+////		File fileCopie = new File(nomDuFichierCopie);
+////		
+////		Scanner sc = new Scanner(file);
+////		
+////		while(sc.hasNextLine()) {
+////			System.out.println(sc.nextLine()); 
+////		}
+////		
+//		// Lire chaque élément un par un (exemple si l'on veut mettre les donnes d'un objet)  
+//		
+//		/*while(sc.hasNext()) {
+//			System.out.println(sc.next());
+//		}*/
+//		
+//		//int i = 0;
+//		
+//		// Ajout d'un prenom dans le fichier
+////		String text = "Simon";
+////		Files.write(path, text.getBytes(), StandardOpenOption.WRITE,StandardOpenOption.APPEND);
+//		
+//		// Suppression d'un prenom
+//	
+//		addLine(nomDuFichier,"Henry");
+//		deleteLine(nomDuFichier, "Simon");
+//		updateLine(nomDuFichier, "Ezio", "Auditore");
+//	
+//		
+//		
+//		
+//
+//	}
 	
 	public static void afficher(List<String> liste) {
 
@@ -76,6 +73,41 @@ public class Fichier {
 			System.out.println(element);
 		}
 	}
+	
+	public static List<String> initFichier(String fileName) throws IOException {
+		
+		Path path = Paths.get(fileName);
+		List<String> liste = new ArrayList<>();
+		liste = Files.readAllLines(path);
+		return liste;	
+	}
+	
+	
+	
+	
+	public static void addLine(String fileName, String nom)
+	{
+		try {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+		StringBuffer sb = new StringBuffer();
+		String line;
+		
+		while((line = reader.readLine()) !=null){
+			sb.append(line + "\n");			
+		}
+		sb.append(nom + "\n");
+		
+		reader.close();
+		
+		
+		BufferedWriter bf = new BufferedWriter(new FileWriter(fileName));
+		bf.write(sb.toString());
+		bf.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public static boolean deleteLine(String fileName, String delete) {
         try {
@@ -100,29 +132,34 @@ public class Fichier {
         return true;
     }
 	
-	    public static void voidDeleteLine2(File file, String remove ) throws IOException{
-
-	        File tempFile = new File("FichierTxt/myTempFile.txt");
-
-	        BufferedReader reader = new BufferedReader(new FileReader(file));
-	        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-	        String lineToRemove = remove;
-	        String currentLine;
-
-	        while((currentLine = reader.readLine()) != null) {
-	           //trim newline when comparing with lineToRemove
-	            String trimmedLine = currentLine.trim();
-	            if(trimmedLine.equals(lineToRemove)) continue;
-	            writer.write(currentLine + System.getProperty("line.separator"));
-	        }
-	        writer.close(); 
-	        reader.close(); 
-	    //    Files.delete(file);
-	        boolean successful = tempFile.renameTo(file);
-	        System.out.println(successful);
-
-	    }
+	public static void updateLine(String fileName, String delete, String add) {
+		
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+			StringBuffer sb = new StringBuffer();
+			String line;
+			
+			while((line= br.readLine()) != null) {
+				if(!line.equals(delete))
+					sb.append(line + "\n");
+				else
+					sb.append(add + "\n");
+			}
+			br.close();
+			
+			BufferedWriter bf = new BufferedWriter(new FileWriter(fileName));
+			bf.write(sb.toString());
+			bf.close();
+			} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+	}
 	}
 
 

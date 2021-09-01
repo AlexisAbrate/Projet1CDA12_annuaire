@@ -3,9 +3,9 @@ package Code;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arbre<E extends Comparable<E>> {
-	
-    // Attribut de la classe : c'est un noeud qui est la racine de l'arbre binaire
+public class Arbre <E extends Comparable<E>> {
+
+	  // Attribut de la classe : c'est un noeud qui est la racine de l'arbre binaire
     // de recherche
     public Noeud<E> racine;
 
@@ -13,7 +13,7 @@ public class Arbre<E extends Comparable<E>> {
     public Arbre() {
         this.racine = null;
     }
-    
+
     // Méthode qui affiche de façon indentée l'arbre binaire de recherche
     public void affichagePrefixe() {
         racine.afficherNoeud();
@@ -240,7 +240,7 @@ public class Arbre<E extends Comparable<E>> {
         d = y.gauche;
         e = y.droit;
 
-// remplacer b par a dans x
+        // remplacer b par a dans x
         currentNoeud.donnee = a;
         // remplacer le sous-arbre droite de x par E.
         currentNoeud.droit = e;
