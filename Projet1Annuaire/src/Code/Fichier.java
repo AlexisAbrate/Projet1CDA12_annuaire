@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -39,8 +38,8 @@ public class Fichier {
 		String nomDuFichier = "Fichiertxt/annuaire.txt";
 		File file = new File(nomDuFichier);
 		
-		String nomDuFichierCopie = "Fichiertxt/annuaire_copie.txt";
-		File fileCopie = new File(nomDuFichierCopie);
+	//	String nomDuFichierCopie = "Fichiertxt/annuaire_copie.txt";
+	//	File fileCopie = new File(nomDuFichierCopie);
 		
 		Scanner sc = new Scanner(file);
 		
@@ -54,7 +53,7 @@ public class Fichier {
 			System.out.println(sc.next());
 		}*/
 		
-		int i = 0;
+	//	int i = 0;
 		
 		// Ajout d'un prenom dans le fichier
 		String text = "Simon";
@@ -66,7 +65,7 @@ public class Fichier {
 		
 	
 		
-		
+		sc.close();
 		
 
 	}
@@ -119,7 +118,7 @@ public class Fichier {
 	        }
 	        writer.close(); 
 	        reader.close(); 
-	        Files.delete(file);
+	    //    Files.delete(file);
 	        boolean successful = tempFile.renameTo(file);
 	        System.out.println(successful);
 
