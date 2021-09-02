@@ -3,15 +3,6 @@ package application;
 import Code.Stagiaire;
 
 
-
-import java.net.URL;
-
-
-import java.util.ResourceBundle;
-
-
-
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,7 +12,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 
 public class MainController {
 
@@ -87,9 +77,7 @@ public class MainController {
 
 	@FXML
 	private Button btnImprimer;
-	
-	
-	
+
 	@FXML
 	private void handleButtonAction(ActionEvent event) {
 		System.out.println("test");
@@ -120,42 +108,55 @@ public class MainController {
 	private void DeleteEnregistrement() {
 
 	}
-	
 
+	@FXML
+	public void initialize() {
 
-	
-	ObservableList<Stagiaire>list = FXCollections.observableArrayList(
-			
-			
-			new Stagiaire("dfdfg","dfsfs"),
-			new Stagiaire("ggggg","uuuuuuu")
-			);
-	
-	public void initialize(URL url, ResourceBundle resources) {
-		
+		ObservableList<Stagiaire> items = FXCollections.observableArrayList();
+		items.add(new Stagiaire("bob", "fdfdff"));
+		items.add(new Stagiaire("dfgfd", "zzzzz"));
+		items.add(new Stagiaire("aaaaaaaaa", "rrrrrrr"));
+		tvStagiaire.setItems(items);
 		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-		tvStagiaire.setItems(list);
+		colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
 	}
-	
-	
-	
 
-//	@FXML
-//	public void initialize(URL location, ResourceBundle resources) {
-//		 
-//		ObservableList<Stagiaire>items = FXCollections.observableArrayList();
-//		items.add(new Stagiaire("bob", "fdfdff"));
-//		items.add(new Stagiaire("dfgfd", "zzzzz"));
-//		items.add(new Stagiaire("aaaaaaaaa", "rrrrrrr"));
-//		tvStagiaire.setItems(items);
-//		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("colNom"));
-//		colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("colPrenom"));
-//	}
-//
-// 
 }
-
+//
+//public void afficherStagiaire()
+//{
+//	try {
+//		
+//	
+//		ObservableList<Stagiaire> list = getStagiaire();
+//		
+//		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
+//		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
+//		tvStagiaire.getItems().clear();
+//		tvStagiaire.getItems().addAll(list);
+//		
+//		
+//		
+//	}
+//	catch (Exception e) {
+//		System.err.println("Error" + e);
+//		
+//	}
+//}
+//ObservableList<Stagiaire>list = FXCollections.observableArrayList(
+//		
+//		
+//		new Stagiaire("dfdfg","dfsfs"),
+//		new Stagiaire("ggggg","uuuuuuu")
+//		);
+//
+//public void initialize(URL url, ResourceBundle resources) {
+//	
+//	colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("colNom"));
+//	colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
+//	tvStagiaire.getItems().addAll(list);
+//}
+//
 
 //
 //public void afficherStagiaire()
@@ -183,5 +184,4 @@ public class MainController {
 //		System.err.println("Error" + e);
 //	
 //}
-	//tvStagaire.getItems().add(list);}
-	
+// tvStagaire.getItems().add(list);}
