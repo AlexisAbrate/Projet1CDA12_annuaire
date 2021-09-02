@@ -12,14 +12,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <HBox alignment="CENTER" prefHeight="27.0" prefWidth="272.0" />
-      <TableView layoutX="299.0" layoutY="82.0" prefHeight="333.0" prefWidth="457.0">
+      <TableView fx:id="tvStagiaire" layoutX="299.0" layoutY="82.0" prefHeight="333.0" prefWidth="457.0">
          <columns>
-            <TableColumn prefWidth="68.0" text="Nom" />
-            <TableColumn prefWidth="68.0" text="Prenom" />
+            <TableColumn fx:id="colNom" prefWidth="68.0" text="Nom" />
+            <TableColumn fx:id="colPrenom" prefWidth="68.0" text="Prenom" />
             <TableColumn prefWidth="51.0" text="Ville" />
             <TableColumn prefWidth="61.0" text="Mail" />
             <TableColumn prefWidth="60.0" text="Theme " />
@@ -68,73 +67,73 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="107.0" layoutY="72.0" prefHeight="340.0" prefWidth="174.0">
          <children>
-            <TextField fx:id="tfId" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfTittle" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfAuthor" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfAnnees" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="15.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfPages" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfId1" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfId2" prefHeight="25.0" prefWidth="249.0">
+            <TextField prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
          </children>
       </VBox>
-      <HBox alignment="CENTER" layoutX="36.0" layoutY="439.0" prefHeight="46.0" prefWidth="259.0">
+      <TextField layoutX="301.0" layoutY="35.0" prefHeight="28.0" prefWidth="366.0" />
+      <Button layoutX="675.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Rechercher" />
+      <Button layoutX="36.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Retoure">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <HBox alignment="CENTER" layoutX="42.0" layoutY="432.0" prefHeight="46.0" prefWidth="259.0">
          <children>
-            <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Ajouter">
+            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" text="Ajouter">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Modiffer">
+            <Button contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="71.0" text="Modiffer">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Suprimer">
+            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" text="Suprimer">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <Button layoutX="678.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Recherche" />
-      <TextField layoutX="301.0" layoutY="35.0" prefHeight="28.0" prefWidth="366.0" />
-      <Button contentDisplay="CENTER" layoutX="686.0" layoutY="453.0" mnemonicParsing="false" text="Imprimer" />
-      <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="56.0">
-         <graphic>
-            <ImageView fitHeight="38.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../return.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <Button layoutX="669.0" layoutY="443.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Imprimer" />
    </children>
 </AnchorPane>
