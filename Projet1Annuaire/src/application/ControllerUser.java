@@ -215,31 +215,4 @@ public class ControllerUser {
 					
 					
 			}
-
-//	private static List<Stagiaire> chercherStagiaire2(String rech) throws ClassNotFoundException, IOException  {
-//		
-//		List<Stagiaire> triListe = new ArrayList<>();
-//		
-//		triListe.clear();
-//		Boolean result = false;
-//		
-//		System.out.println(rech);
-//					
-//			for(int i=0; i<(Fichier.deserialisation().size()); i++) {
-//						
-//					Stagiaire stag = Fichier.deserialisation().get(i);
-//						result = stag.rechercher_naive(rech);
-//					
-//					if (result == true) { triListe.add(stag); }					
-//					
-//					result = false;
-//			}
-//							
-//					System.out.println(triListe);
-//					return triListe;
-//					
-//					
-//			}
-	
-
 }

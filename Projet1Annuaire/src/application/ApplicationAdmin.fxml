@@ -38,64 +38,64 @@
       <Label contentDisplay="CENTER" layoutX="28.0" layoutY="407.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Tel." textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
       <VBox alignment="CENTER" layoutX="92.0" layoutY="60.0" prefHeight="581.0" prefWidth="195.0">
          <children>
-            <TextField prefHeight="25.0" prefWidth="249.0" promptText="nom">
+            <TextField fx:id="tfNom" prefHeight="25.0" prefWidth="249.0" promptText="nom">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfPrenom" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfGenre" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfAge" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfAdresse" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfMail" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="28.0" prefWidth="174.0">
+            <TextField fx:id="tfTel" prefHeight="28.0" prefWidth="174.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfTheme" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfDebut" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfDuree" prefHeight="25.0" prefWidth="249.0">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
          </children>
       </VBox>
-      <TextField layoutX="313.0" layoutY="35.0" prefHeight="28.0" prefWidth="658.0" />
+      <TextField fx:id="tfRecherche" layoutX="313.0" layoutY="35.0" prefHeight="28.0" prefWidth="658.0" />
       <Button layoutX="989.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Rechercher" />
       <Button fx:id="btnDeconnecter" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Déconnexion" />
       <HBox alignment="CENTER" layoutX="28.0" layoutY="631.0" prefHeight="46.0" prefWidth="259.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" text="Ajouter">
+            <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Ajouter">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>

@@ -29,12 +29,12 @@ public class Fichier {
 		
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
 		
-		
-		oos.writeObject(liste);
 		Fichier.clearFichier("Fichiertxt/annuaire.txt");
 		for(int i = 0; i<liste.size();i++) {
-		Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
-		
+		Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));
+		}
+		oos.writeObject(liste);
+
 		oos.close();
 				
 	}
@@ -52,6 +52,26 @@ public class Fichier {
 	
 	return list;
 	}
+	
+	
+	
+	//Ajout
+	
+	
+	public static void ajoutObjet (Stagiaire stagiaire) throws IOException {
+		
+		
+		FileOutputStream fos = new FileOutputStream("Fichiertxt/annuaire.ser");
+		
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		
+		oos.writeObject(stagiaire);
+		
+		oos.close();	
+		
+		
+	}
+
 	
 	
 	
@@ -74,21 +94,21 @@ public class Fichier {
 	
 	
 	
-	// Sauvegarde (pour suppression)
-	
-public static void serialisationSupp(List<Stagiaire> liste, Stagiaire stagiaire) throws IOException {
-	
-	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
-	
-	liste.remove(stagiaire);
-	oos.writeObject(liste);
-	Fichier.clearFichier("Fichiertxt/annuaire.txt");
-	for(int i = 0; i<liste.size();i++) {
-	Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
-	
-	oos.close();
-			
-}
+//	// Sauvegarde (pour suppression)
+//	
+//public static void serialisationSupp(List<Stagiaire> liste, Stagiaire stagiaire) throws IOException {
+//	
+//	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+//	
+//	liste.remove(stagiaire);
+//	oos.writeObject(liste);
+//	Fichier.clearFichier("Fichiertxt/annuaire.txt");
+//	for(int i = 0; i<liste.size();i++) {
+//	Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
+//	
+//	oos.close();
+//			
+//}
 	
 	
 	
@@ -260,19 +280,7 @@ public static void serialisationSupp(List<Stagiaire> liste, Stagiaire stagiaire)
 	
 	
 	
-	public static void ajoutObjet (Stagiaire stagiaire) throws IOException {
-		
-		
-		FileOutputStream fos = new FileOutputStream("Fichiertxt/annuaire.ser");
-		
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		
-		oos.writeObject(stagiaire);
-		
-		oos.close();	
-		
-		
-	}
+	
 	
 
 	

@@ -22,17 +22,19 @@ public class Maintest4 {
 		Noeud<Stagiaire> n1 = new Noeud<Stagiaire>(Selim);
 		
 		List<Stagiaire> liste = Fichier.deserialisation();
+		
+		System.out.println(liste);
 				
-		monArbre1.racine = n1;
-		
-		for (Stagiaire stagiaire : liste) {
-			if(stagiaire != Selim)
-			monArbre1.ajouterValeurEquilibre(stagiaire);
-		}
-		monArbre1.afficherArbre();
-
-		
-		System.out.println();
+//		monArbre1.racine = n1;
+//		
+//		for (Stagiaire stagiaire : liste) {
+//			if(stagiaire != Selim)
+//			monArbre1.ajouterValeurEquilibre(stagiaire);
+//		}
+//		monArbre1.afficherArbre();
+//
+//		
+//		System.out.println();
 		
 		
 		

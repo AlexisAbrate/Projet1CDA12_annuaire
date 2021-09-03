@@ -1,6 +1,5 @@
 package application;
 
-import Code.Stagiaire;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -30,9 +29,6 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-//		Stagiaire Selim = new Stagiaire("Selim","Korat","M","48","84 Rue Sergent Bichot - Paris","selim.k@gmail.com","0688132325","C#","07/02/2019","02/12/2022");
-//		
-//		System.out.println(Selim.rechercheLarge("Sel"));
 		
 		
 	}

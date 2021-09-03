@@ -37,7 +37,7 @@ public class Stagiaire implements Serializable, Comparable<Stagiaire> {
 		return this.getPrenom().compareTo(o.getPrenom()) ;
 	}
 	
-	public Boolean recherche(String recherche) {
+public Boolean recherche(String recherche) {
 		
 		if (prenom.equals(recherche) || nom.equals(recherche) || genre.equals(recherche) || age.equals(recherche)
 				|| adresse.equals(recherche) || mail.equals(recherche) || tel.equals(recherche) 
@@ -57,7 +57,6 @@ public class Stagiaire implements Serializable, Comparable<Stagiaire> {
 		}
 		else { return false; }
 	}
-	
 	
 	
 	public String getPrenom() {

@@ -1,6 +1,10 @@
 package application;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +26,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class ControllerAdmin {
+public class ControllerAdmin implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2370195552200756732L;
 
 	@FXML
 	private TextField tfNom;
@@ -111,115 +120,53 @@ public class ControllerAdmin {
 	
 
 	@FXML
-	private void handleButtonAction(ActionEvent event) throws ClassNotFoundException, IOException {
-		System.out.println("Action event réussi");
+	private void handleButtonAction(ActionEvent event) throws Exception, Throwable {
+		System.out.println("test");
 
-		if (event.getSource() == btnRechercher) {
+		if (event.getSource() == btnAjouter) {
 
-			System.out.println("event btn rechercher enclenché");
-			System.out.println(tfRech.getText());
-
-			chercherStagiaire(tfRech.getText());
-			
-			ObservableList<Stagiaire> items = FXCollections.observableArrayList();
-			items.addAll(chercherStagiaire(tfRech.getText()));
-			tvStagiaire.setItems(items);
-			
-			colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-			colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-		//	colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
-		//	colAge.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("age"));
-			colAdresse.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("adresse"));
-			colMail.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("mail"));
-		//	colTel.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("tel"));
-			colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
-			colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
-			colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
-
-		
+			AjouterEnregistrement();
 		}
-		
-		if (event.getSource() == btnRechercheLarge) {
 
-			System.out.println("event btn rechercher enclenché");
-			System.out.println(tfRech.getText());
+		else if (event.getSource() == btnSuprimer) {
 
-//			chercherStagiaire2(tfRech.getText());
-			
-			ObservableList<Stagiaire> items = FXCollections.observableArrayList();
-			items.addAll(chercherStagiaire2(tfRech.getText()));
-			tvStagiaire.setItems(items);
-			
-			colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-			colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-		//	colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
-		//	colAge.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("age"));
-			colAdresse.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("adresse"));
-			colMail.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("mail"));
-		//	colTel.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("tel"));
-			colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
-			colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
-			colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
+			DeleteEnregistrement();
+		}
+
+		else {
+			UpdateEnregistrement();
 		}
 	}
+
 	
-	@FXML
-	private static List<Stagiaire> chercherStagiaire(String rech) throws ClassNotFoundException, IOException  {
+	private void AjouterEnregistrement() throws Exception, Throwable {
 		
-		List<Stagiaire> triListe = new ArrayList<>();
+		List<Stagiaire> list = tvStagiaire.getItems(); //1 recuperation de la liste des contact deja presents
+		System.out.println(list);
+		Stagiaire stagiaire = new Stagiaire(tfPrenom.getText(),tfNom.getText(),tfGenre.getText(),tfAge.getText(),tfAdresse.getText(),tfMail.getText(),tfTel.getText(),tfTheme.getText(),tfDebut.getText(),tfDuree.getText());
+		System.out.println(stagiaire.toString());
+		list.add(stagiaire); // 2 ajout du nouvel eelement dans la liste
+		System.out.println(list.get(2));
+		System.out.println(list);
+		Fichier.serialisation(list);; // 3 mise a jour du fichier
+		//initialize(); // reimportation de la liste mise à jour dans l'interface
 		
-		triListe.clear();
-		Boolean result = false;
-		
-		System.out.println(rech);
-					
-			for(int i=0; i<(Fichier.deserialisation().size()); i++) {
-						
-					Stagiaire stag = Fichier.deserialisation().get(i);
-						result = stag.recherche(rech);
-					
-					if (result == true) { triListe.add(stag); }					
-					
-					result = false;
-			}
-							
-					System.out.println(triListe);
-					return triListe;
-					
-					
-			}
-	@FXML
-	private static List<Stagiaire> chercherStagiaire2(String rech) throws ClassNotFoundException, IOException  {
-		
-		List<Stagiaire> triListe = new ArrayList<>();
-		
-		triListe.clear();
-		Boolean result = false;
-		
-		System.out.println(rech);
-					
-			for(int i=0; i<(Fichier.deserialisation().size()); i++) {
-						
-					Stagiaire stag = Fichier.deserialisation().get(i);
-						result = stag.rechercheLarge(rech);
-					
-					if (result == true) { triListe.add(stag); }					
-					
-					result = false;
-			}
-							
-					System.out.println(triListe);
-					return triListe;
-					
-					
-			}
+	}
+
+	private void UpdateEnregistrement() {
+
+	}
+
+	private void DeleteEnregistrement() {
+
+	}
 
 	@FXML
 	public void initialize() throws Throwable, Exception {
 
 		ObservableList<Stagiaire> items = FXCollections.observableArrayList();
 		items.addAll(Fichier.deserialisation());
-
+	
 		tvStagiaire.setItems(items);
 		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
 		colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
