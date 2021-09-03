@@ -1,5 +1,7 @@
 package application;
 
+import java.io.IOException;
+
 import Code.Stagiaire;
 
 
@@ -7,13 +9,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
-public class MainController {
+public class ControllerAdmin {
 
 	@FXML
 	private TextField tfNom;
@@ -77,6 +83,11 @@ public class MainController {
 
 	@FXML
 	private Button btnImprimer;
+	
+	@FXML
+	private Button btnDeconnecter;
+	
+	
 
 	@FXML
 	private void handleButtonAction(ActionEvent event) {
@@ -119,69 +130,25 @@ public class MainController {
 		tvStagiaire.setItems(items);
 		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
 		colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
+		
+		
+		btnDeconnecter.setOnAction(event -> {
+			btnDeconnecter.getScene().getWindow().hide();
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/application/ApiConnexion.fxml"));
+			try {
+				loader.load();
+			} catch (IOException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			}
+			
+			Parent root = loader.getRoot();
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root));
+			stage.showAndWait();
+		});
 	}
 
 }
-//
-//public void afficherStagiaire()
-//{
-//	try {
-//		
-//	
-//		ObservableList<Stagiaire> list = getStagiaire();
-//		
-//		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-//		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-//		tvStagiaire.getItems().clear();
-//		tvStagiaire.getItems().addAll(list);
-//		
-//		
-//		
-//	}
-//	catch (Exception e) {
-//		System.err.println("Error" + e);
-//		
-//	}
-//}
-//ObservableList<Stagiaire>list = FXCollections.observableArrayList(
-//		
-//		
-//		new Stagiaire("dfdfg","dfsfs"),
-//		new Stagiaire("ggggg","uuuuuuu")
-//		);
-//
-//public void initialize(URL url, ResourceBundle resources) {
-//	
-//	colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("colNom"));
-//	colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-//	tvStagiaire.getItems().addAll(list);
-//}
-//
-
-//
-//public void afficherStagiaire()
-//
-//{
-//	try {
-//	ObservableList<Stagiaire> list= FXCollections.observableArrayList();	
-//	//tvStagaire.getItems().add(list);
-//	//String nomDuFichier = "Fichiertxt/annuaire.txt";
-//	//List<String> liste = new ArrayList<>();
-//	//liste = Fichier.initFichier(nomDuFichier);
-//
-//	colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("Nom"));
-//	colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("Prenom"));
-////	colNom.setSortType(TableColumn.SortType.DESCENDING);
-////	colPrenom.setSortable(false);
-//	
-//     table.setItems(list);
-//     
-//     table.getColumns().addAll(colNom, colPrenom);
-//	
-//
-//}
-//	catch (Exception e) {
-//		System.err.println("Error" + e);
-//	
-//}
-// tvStagaire.getItems().add(list);}

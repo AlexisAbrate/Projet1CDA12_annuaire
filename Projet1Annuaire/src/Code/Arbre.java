@@ -14,6 +14,36 @@ public class Arbre <E extends Comparable<E>> {
         this.racine = null;
     }
 
+    
+    
+    
+private static void chercherStagiaire(String rech, List<Stagiaire> liste) {
+		
+		Boolean result = false;
+		long temp1 = System.currentTimeMillis();
+				
+				for(int i=0; i<liste.size(); i++) {
+					
+					Stagiaire stag = liste.get(i);
+					
+					if (rech.equals(stag.getPrenom()) || rech.equals(stag.getNom()) || rech.equals(stag.getFormation())) {
+						System.out.println(stag.toString()); result = true;
+					}
+								
+				}
+				
+				if (result == false) { System.out.println("Aucun Résultat trouvé"); }
+				
+				long temp2 = System.currentTimeMillis();
+				System.out.println();
+				System.out.println("durée de la recherche en mSec : " + (temp2-temp1));
+			}
+
+    
+    
+    
+    
+    
     // Méthode qui affiche de façon indentée l'arbre binaire de recherche
     public void affichagePrefixe() {
         racine.afficherNoeud();

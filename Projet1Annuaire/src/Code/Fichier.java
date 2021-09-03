@@ -5,10 +5,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,6 +22,91 @@ import java.util.Scanner;
 
 public class Fichier {
 
+	
+	// Sauvegarde (pour ajout)
+	
+	public static void serialisation(List<Stagiaire> liste) throws IOException {
+		
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+		
+		
+		oos.writeObject(liste);
+		Fichier.clearFichier("Fichiertxt/annuaire.txt");
+		for(int i = 0; i<liste.size();i++) {
+		Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
+		
+		oos.close();
+				
+	}
+	
+	// Chargement
+	
+	public static List<Stagiaire> deserialisation() throws IOException, ClassNotFoundException {
+		
+	ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Fichiertxt/annuaire.ser"));
+	
+	
+	List<Stagiaire> list = (List<Stagiaire>) ois.readObject();
+	
+	ois.close();
+	
+	return list;
+	}
+	
+	
+	
+	// Sauvegarde (pour modification)
+//	
+//public static void serialisationSupp(List<Stagiaire> liste) throws IOException {
+//		
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+//		
+//		
+//		oos.writeObject(liste);
+//		Fichier.clearFichier("Fichiertxt/annuaire.txt");
+//		for(int i = 0; i<liste.size();i++) {
+//		Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
+//		
+//		oos.close();
+//				
+//	}
+	
+	
+	
+	
+	// Sauvegarde (pour suppression)
+	
+public static void serialisationSupp(List<Stagiaire> liste, Stagiaire stagiaire) throws IOException {
+	
+	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+	
+	liste.remove(stagiaire);
+	oos.writeObject(liste);
+	Fichier.clearFichier("Fichiertxt/annuaire.txt");
+	for(int i = 0; i<liste.size();i++) {
+	Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
+	
+	oos.close();
+			
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //	public static void main(String[] args) throws IOException {
 //
 //
@@ -83,9 +171,9 @@ public class Fichier {
 	}
 	
 	
+
 	
-	
-	public static void addLine(String fileName, String nom)
+	public static void addLine(String fileName, Stagiaire nom)
 	{
 		try {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
@@ -132,6 +220,15 @@ public class Fichier {
         return true;
     }
 	
+	public static void clearFichier(String fileName) throws IOException {
+		
+	String clear = "";
+	Path path = Paths.get(fileName);
+	Files.write(path, clear.getBytes());
+		
+		
+	}
+	
 	public static void updateLine(String fileName, String delete, String add) {
 		
 		try {
@@ -160,6 +257,26 @@ public class Fichier {
 		
 		
 	}
+	
+	
+	
+	public static void ajoutObjet (Stagiaire stagiaire) throws IOException {
+		
+		
+		FileOutputStream fos = new FileOutputStream("Fichiertxt/annuaire.ser");
+		
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		
+		oos.writeObject(stagiaire);
+		
+		oos.close();	
+		
+		
 	}
+	
+
+	
+}
+
 
 
