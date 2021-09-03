@@ -60,6 +60,7 @@ public class ControllerLogin {
 	public void fermerLogin(ActionEvent event) {
 		Stage stage = (Stage) btnAnnuler.getScene().getWindow();
 	    stage.hide();
+	    
 	}
 
 }

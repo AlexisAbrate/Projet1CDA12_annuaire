@@ -49,10 +49,10 @@ public class Stagiaire implements Serializable, Comparable<Stagiaire> {
 
 	public Boolean rechercheLarge(String recherche) {
 		
-		if (prenom.indexOf(recherche) !=1 || nom.indexOf(recherche) !=-1 || genre.indexOf(recherche) != -1 || 
-				age.indexOf(recherche) != -1 || adresse.indexOf(recherche) != -1 || mail.indexOf(recherche) != -1  || 
-				tel.indexOf(recherche) != -1 || formation.indexOf(recherche) != -1  || debutFormation.indexOf(recherche) != -1  
-				|| finFormation.indexOf(recherche) != -1 ) {
+		if (prenom.contains(recherche) || nom.contains(recherche) || genre.contains(recherche) || 
+				age.contains(recherche) || adresse.contains(recherche) || mail.contains(recherche)  || 
+				tel.contains(recherche) || formation.contains(recherche) || debutFormation.contains(recherche)  
+				|| finFormation.contains(recherche) ) {
 			return true;
 		}
 		else { return false; }
