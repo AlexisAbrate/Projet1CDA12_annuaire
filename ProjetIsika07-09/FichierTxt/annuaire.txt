@@ -1,0 +1,7 @@
+[prenom=Alexis, nom=Abrate, genre=M, age =28, adresse=124 Rue Hoche - Montreuil, mail=abrate.alexis@gmail.com, tel=0685221445, formation=ISIKA, debutFormation=02/04/2021, finFormation=18/05/2022]
+[prenom=Nono, nom=Guevel, genre=F, age =21, adresse=58 Rue Charles de Gaulle - Vaureal, mail=nono.g@outlook.fr, tel=0785142233, formation=EducSpe, debutFormation=04/04/2020, finFormation=25/07/2022]
+[prenom=Max, nom=Lonne, genre=M, age =28, adresse=10 Rue Docteur Nekache - Paris, mail=max.lonne@gmail.com, tel=0617178552, formation=ESSEC, debutFormation=08/09/2021, finFormation=19/05/2022]
+[prenom=Lee, nom=Lonne, genre=M, age =28, adresse=10 Rue Docteur Nekache - Paris, mail=lee.lonne@gmail.com, tel=0617178874, formation=ESSEC, debutFormation=08/09/2021, finFormation=19/05/2022]
+[prenom=Max, nom=Lonne, genre=M, age =28, adresse=10 Rue Docteur Nekache - Paris, mail=max.lonne@gmail.com, tel=0617178552, formation=ESSEC, debutFormation=08/09/2021, finFormation=19/05/2022]
+[prenom=Brasseur, nom=Marie, genre=F, age =23, adresse=3000 jfjfkgl dijdifofkld, mail=ebvhdyslf@ldiofof.fk, tel=06658787954, formation=Java, debutFormation=08/09/2021, finFormation=05/03/2022]
+[prenom=Lee, nom=Lonne, genre=M, age =28, adresse=10 Rue Docteur Nekache - Paris, mail=lee.lonne@gmail.com, tel=0617178874, formation=ESSEC, debutFormation=08/09/2021, finFormation=19/05/2022]
