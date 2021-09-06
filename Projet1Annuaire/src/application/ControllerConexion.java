@@ -42,7 +42,7 @@ public class ControllerConexion {
 				
 				
 				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(getClass().getResource("/application/Login.fxml"));
+				loader.setLocation(getClass().getResource("/application/ApplicationAdmin.fxml"));
 				try {
 					loader.load();
 				} catch (IOException e) {

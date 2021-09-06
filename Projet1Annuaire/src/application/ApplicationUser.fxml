@@ -5,27 +5,38 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerUser">
    <children>
-      <TableView fx:id="tvStagiaire" layoutX="31.0" layoutY="80.0" prefHeight="438.0" prefWidth="730.0">
+      <TableView fx:id="tvStagiaire" layoutX="44.0" layoutY="113.0" prefHeight="519.0" prefWidth="1010.0">
          <columns>
-            <TableColumn fx:id="colNom" prefWidth="139.0" text="Nom" />
-            <TableColumn fx:id="colPrenom" prefWidth="82.0" text="Prenom" />
-            <TableColumn prefWidth="92.0" text="Ville" />
-            <TableColumn text="Mail" />
-            <TableColumn prefWidth="98.0" text="Theme " />
-            <TableColumn prefWidth="109.0" text="Date debut" />
-            <TableColumn minWidth="30.0" prefWidth="129.0" text="Date duree" />
+            <TableColumn fx:id="colNom" prefWidth="104.0" text="Nom" />
+            <TableColumn fx:id="colPrenom" prefWidth="113.0" text="Prenom" />
+            <TableColumn fx:id="colGenre" prefWidth="76.0" text="Genre" />
+            <TableColumn fx:id="colAge" prefWidth="72.0" text="Age" />
+            <TableColumn fx:id="colAdresse" prefWidth="88.0" text="Ville" />
+            <TableColumn fx:id="colMail" prefWidth="100.0" text="Mail" />
+            <TableColumn fx:id="colTel" prefWidth="105.0" text="Tel" />
+            <TableColumn fx:id="colTheme" prefWidth="122.0" text="Theme " />
+            <TableColumn fx:id="colDebut" prefWidth="129.0" text="Date debut" />
+            <TableColumn fx:id="colDuree" minWidth="0.0" prefWidth="113.0" text="Date duree" />
          </columns>
       </TableView>
-      <Button fx:id="btnRechercher" layoutX="675.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="79.0" text="Rechercher" />
+      <Button fx:id="btnRechercher" layoutX="967.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Rechercher" />
       <Button fx:id="btnConnecter" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Connexion" />
-      <Button layoutX="669.0" layoutY="543.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Imprimer" />
-      <TextField fx:id="tfRech" layoutX="348.0" layoutY="37.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="305.0" />
-      <Button fx:id="btnAfficher" layoutX="181.0" layoutY="37.0" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="130.0" text="Afficher tout" />
-      <CheckBox layoutX="171.0" layoutY="6.0" mnemonicParsing="false" text="Recherche Large" />
-      <Button fx:id="btnRechercheLarge" layoutX="436.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="130.0" text="Recherche Large" />
+      <Button layoutX="961.0" layoutY="642.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Imprimer" />
+      <TextField fx:id="tfRech" layoutX="332.0" layoutY="37.0" onAction="#itemStateChanged" prefHeight="26.0" prefWidth="614.0" />
+      <Button fx:id="btnAfficher" layoutX="290.0" layoutY="34.0" minWidth="0.0" mnemonicParsing="false" onAction="#initialize" prefHeight="32.0" prefWidth="0.0">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/actualiser.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <CheckBox fx:id="cbRecherche" layoutX="816.0" layoutY="84.0" mnemonicParsing="false" onAction="#itemStateChanged" prefHeight="18.0" prefWidth="145.0" text="Recherche large" />
    </children>
 </AnchorPane>

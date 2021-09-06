@@ -1,6 +1,11 @@
 package Code;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.fxml.FXML;
 
 public class Stagiaire implements Serializable, Comparable<Stagiaire> {
 
@@ -58,6 +63,13 @@ public Boolean recherche(String recherche) {
 		else { return false; }
 	}
 	
+public Boolean recherche2(String recherche, String recherche2) {
+		
+		if (prenom.equals(recherche) && nom.equals(recherche)) {
+			return true;
+		}
+		else { return false; }
+	}
 	
 	public String getPrenom() {
 		return prenom;

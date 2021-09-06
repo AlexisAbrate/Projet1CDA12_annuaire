@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,6 +20,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import javafx.collections.ObservableList;
 
 public class Fichier {
 
@@ -30,10 +33,13 @@ public class Fichier {
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
 		
 		Fichier.clearFichier("Fichiertxt/annuaire.txt");
+		System.out.println("Fichier Clear");
 		for(int i = 0; i<liste.size();i++) {
 		Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));
+		System.out.println("une ligne ecrite");
 		}
 		oos.writeObject(liste);
+		System.out.println("Serialisé");
 
 		oos.close();
 				
@@ -75,6 +81,8 @@ public class Fichier {
 	
 	
 	
+	
+	
 	// Sauvegarde (pour modification)
 //	
 //public static void serialisationSupp(List<Stagiaire> liste) throws IOException {
@@ -95,85 +103,26 @@ public class Fichier {
 	
 	
 //	// Sauvegarde (pour suppression)
-//	
-//public static void serialisationSupp(List<Stagiaire> liste, Stagiaire stagiaire) throws IOException {
-//	
-//	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
-//	
-//	liste.remove(stagiaire);
-//	oos.writeObject(liste);
-//	Fichier.clearFichier("Fichiertxt/annuaire.txt");
-//	for(int i = 0; i<liste.size();i++) {
-//	Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));}
-//	
-//	oos.close();
-//			
-//}
+
+public static void serialisationSupp(List<Stagiaire> liste) throws IOException {
+		
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+		
+		Fichier.clearFichier("Fichiertxt/annuaire.txt");
+		System.out.println("Fichier Clear");
+		for(int i = 0; i<liste.size();i++) {
+		Fichier.addLine("Fichiertxt/annuaire.txt", liste.get(i));
+		System.out.println("une ligne ecrite");
+		}
+		oos.writeObject(liste);
+		System.out.println("Serialisé");
+
+		oos.close();
+				
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	public static void main(String[] args) throws IOException {
-//
-//
-//		String nomDuFichier = "Fichiertxt/annuaire.txt";
-//		
-//		List<String> liste = new ArrayList<>();
-//		
-//		liste = initFichier(nomDuFichier);
-//		
-//		
-//		// Lire les noms d'un fichier (Scanner)
-//		
-//		
-////		File file = new File(nomDuFichier);
-////		
-////		String nomDuFichierCopie = "Fichiertxt/annuaire_copie.txt";
-////		File fileCopie = new File(nomDuFichierCopie);
-////		
-////		Scanner sc = new Scanner(file);
-////		
-////		while(sc.hasNextLine()) {
-////			System.out.println(sc.nextLine()); 
-////		}
-////		
-//		// Lire chaque élément un par un (exemple si l'on veut mettre les donnes d'un objet)  
-//		
-//		/*while(sc.hasNext()) {
-//			System.out.println(sc.next());
-//		}*/
-//		
-//		//int i = 0;
-//		
-//		// Ajout d'un prenom dans le fichier
-////		String text = "Simon";
-////		Files.write(path, text.getBytes(), StandardOpenOption.WRITE,StandardOpenOption.APPEND);
-//		
-//		// Suppression d'un prenom
-//	
-//		addLine(nomDuFichier,"Henry");
-//		deleteLine(nomDuFichier, "Simon");
-//		updateLine(nomDuFichier, "Ezio", "Auditore");
-//	
-//		
-//		
-//		
-//
-//	}
+
 	
 	public static void afficher(List<String> liste) {
 

@@ -26,6 +26,8 @@ public class TestSerialisation {
 		Stagiaire loulou = new Stagiaire("Loulou", "Guevel","M","27","17 Rue Veron - Alfortville","kev.guev@gmail.com","0615874411","Happy Dog","14/09/2021","25/11/2022");
 		Stagiaire nono = new Stagiaire("Nono", "Guevel","F","21","58 Rue Charles de Gaulle - Vaureal","nono.g@outlook.fr","0785142233","EducSpe","04/04/2020","25/07/2022");
 		Stagiaire max = new Stagiaire("Max","Lonne","M","28","10 Rue Docteur Nekache - Paris","max.lonne@gmail.com","0617178552","ESSEC","08/09/2021","19/05/2022");
+		Stagiaire max3 = new Stagiaire("Max","Lonne","M","28","10 Rue Docteur Nekache - Paris","max.lonne@gmail.com","0617178552","ESSEC","08/09/2021","19/05/2022");
+
 		Stagiaire Lee = new Stagiaire("Lee","Lonne","M","28","10 Rue Docteur Nekache - Paris","lee.lonne@gmail.com","0617178874","ESSEC","08/09/2021","19/05/2022");
 		
 		
@@ -35,6 +37,7 @@ public class TestSerialisation {
 		liste.add(nono);
 		liste.add(max);
 		liste.add(Lee);
+		liste.add(max3);
 		
 	/*	List<Stagiaire> list = new ArrayList();
 		
