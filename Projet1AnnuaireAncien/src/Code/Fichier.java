@@ -30,7 +30,7 @@ public class Fichier {
 	
 	public static void serialisation(List<Stagiaire> liste) throws IOException {
 		
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FichierTxt/annuaire.ser"));
 		
 		Fichier.clearFichier("Fichiertxt/annuaire.txt");
 		System.out.println("Fichier Clear");
@@ -49,7 +49,7 @@ public class Fichier {
 	
 	public static List<Stagiaire> deserialisation() throws IOException, ClassNotFoundException {
 		
-	ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Fichiertxt/annuaire.ser"));
+	ObjectInputStream ois = new ObjectInputStream(new FileInputStream("FichierTxt/annuaire.ser"));
 	
 	
 	List<Stagiaire> list = (List<Stagiaire>) ois.readObject();
@@ -67,7 +67,7 @@ public class Fichier {
 	public static void ajoutObjet (Stagiaire stagiaire) throws IOException {
 		
 		
-		FileOutputStream fos = new FileOutputStream("Fichiertxt/annuaire.ser");
+		FileOutputStream fos = new FileOutputStream("FichierTxt/annuaire.ser");
 		
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
@@ -106,7 +106,7 @@ public class Fichier {
 
 public static void serialisationSupp(List<Stagiaire> liste) throws IOException {
 		
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Fichiertxt/annuaire.ser"));
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("FichierTxt/annuaire.ser"));
 		
 		Fichier.clearFichier("Fichiertxt/annuaire.txt");
 		System.out.println("Fichier Clear");
@@ -222,15 +222,9 @@ public static void serialisationSupp(List<Stagiaire> liste) throws IOException {
 		
 		
 		
-		
-		
-		
 	}
 	
-	
-	
-	
-	
+
 
 	
 }

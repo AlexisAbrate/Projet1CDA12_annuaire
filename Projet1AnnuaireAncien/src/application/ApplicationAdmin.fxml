@@ -7,123 +7,230 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerAdmin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #7FAFED;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerAdmin">
    <children>
-      <TableView fx:id="tvStagiaire" layoutX="312.0" layoutY="113.0" onMouseClicked="#choixContact" prefHeight="518.0" prefWidth="756.0">
+      <TableView fx:id="tvStagiaire" layoutX="312.0" layoutY="113.0" onMouseClicked="#choixContact" prefHeight="489.0" prefWidth="756.0">
          <columns>
             <TableColumn fx:id="colNom" prefWidth="90.0" text="Nom" />
             <TableColumn fx:id="colPrenom" prefWidth="77.0" text="Prenom" />
             <TableColumn fx:id="colGenre" prefWidth="69.0" text="Genre" />
             <TableColumn fx:id="colAge" prefWidth="59.0" text="Age" />
-            <TableColumn fx:id="colAdresse" prefWidth="76.0" text="Agresse" />
+            <TableColumn fx:id="colAdresse" prefWidth="76.0" text="Adresse" />
             <TableColumn fx:id="colMail" prefWidth="72.0" text="Mail" />
             <TableColumn fx:id="colTel" prefWidth="72.0" text="Tel." />
             <TableColumn fx:id="colTheme" prefWidth="69.0" text="Theme " />
             <TableColumn fx:id="colDebut" prefWidth="73.0" text="Date debut" />
-            <TableColumn fx:id="colDuree" maxWidth="98.0" minWidth="0.0" prefWidth="95.0" text="Date duree" />
+            <TableColumn fx:id="colDuree" maxWidth="98.0" minWidth="0.0" prefWidth="95.0" text="Date de fin" />
          </columns>
       </TableView>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="142.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Prenom" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="90.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Nom" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="195.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Genre" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="297.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Adresse" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="29.0" layoutY="351.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="82.0" text="Mail" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="246.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Age" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="465.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Theme" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="518.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date debut" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="567.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date duree" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="407.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Tel." textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="142.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Prenom" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="90.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Nom" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="195.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Genre" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="297.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Adresse" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="29.0" layoutY="351.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="82.0" text="Mail" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="246.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Age" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="465.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Theme" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="518.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date debut" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="567.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date duree" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="407.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Tel." textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding></Label>
       <VBox alignment="CENTER" layoutX="92.0" layoutY="60.0" prefHeight="581.0" prefWidth="195.0">
          <children>
-            <TextField fx:id="tfNom" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfNom" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfPrenom" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfPrenom" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfGenre" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfGenre" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfAge" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfAge" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfAdresse" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfAdresse" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfMail" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfMail" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfTel" prefHeight="28.0" prefWidth="174.0">
+            <TextField fx:id="tfTel" prefHeight="28.0" prefWidth="174.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfTheme" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfTheme" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfDebut" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfDebut" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="tfDuree" prefHeight="25.0" prefWidth="249.0">
+            <TextField fx:id="tfDuree" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
                <VBox.margin>
                   <Insets bottom="15.0" top="13.0" />
                </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </TextField>
          </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
       </VBox>
-      <TextField fx:id="tfRech" layoutX="350.0" layoutY="35.0" onAction="#itemStateChanged" prefHeight="28.0" prefWidth="621.0" />
-      <Button fx:id="btnRechercher" layoutX="989.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Rechercher" />
-      <Button fx:id="btnDeconnecter" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Déconnexion" />
+      <TextField fx:id="tfRech" layoutX="350.0" layoutY="35.0" onAction="#itemStateChanged" prefHeight="28.0" prefWidth="621.0" style="-fx-background-radius: 1em;" />
+      <Button fx:id="btnRechercher" defaultButton="true" layoutX="989.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-radius: 3em;" text="Rechercher">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnDeconnecter" cancelButton="true" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" onAction="#deconnecteAdmin" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 3em;" text="Déconnexion">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <HBox alignment="CENTER" layoutX="28.0" layoutY="631.0" prefHeight="46.0" prefWidth="259.0">
          <children>
-            <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Ajouter">
+            <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 3em;" text="Ajouter">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="btnModifier" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Modiffer">
+            <Button fx:id="btnModifier" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" style="-fx-background-radius: 3em;" text="Modifier">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="btnSuprimer" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="71.0" text="Suprimer">
+            <Button fx:id="btnSuprimer" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-radius: 3em;" text="Supprimer">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Button>
          </children>
       </HBox>
-      <Button layoutX="977.0" layoutY="641.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Imprimer" />
+      <Button fx:id="btnImprimer" layoutX="983.0" layoutY="642.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 3em;" text="Imprimer">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Button fx:id="btnAfficher" layoutX="312.0" layoutY="34.0" mnemonicParsing="false" onAction="#initialize" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/actualiser.png" />
+                  <Image url="@resources/pngegg.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <CheckBox fx:id="cbRecherche" layoutX="865.0" layoutY="82.0" mnemonicParsing="false" onAction="#itemStateChanged" text="Recherche large" />
+      <CheckBox fx:id="cbRecherche" layoutX="865.0" layoutY="82.0" mnemonicParsing="false" onAction="#itemStateChanged" text="Recherche large">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></CheckBox>
    </children>
 </AnchorPane>

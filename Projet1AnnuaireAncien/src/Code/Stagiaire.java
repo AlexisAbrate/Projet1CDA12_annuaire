@@ -46,7 +46,7 @@ public Boolean recherche(String recherche) {
 		
 		if (prenom.equals(recherche) || nom.equals(recherche) || genre.equals(recherche) || age.equals(recherche)
 				|| adresse.equals(recherche) || mail.equals(recherche) || tel.equals(recherche) 
-				||formation.equals(recherche) || debutFormation.equals(recherche) || finFormation.equals(recherche)) {
+				|| formation.equals(recherche) || debutFormation.equals(recherche) || finFormation.equals(recherche)) {
 			return true;
 		}
 		else { return false; }

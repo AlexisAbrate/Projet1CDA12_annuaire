@@ -9,6 +9,7 @@ import Code.Arbre;
 import Code.Fichier;
 import Code.Noeud;
 import Code.Stagiaire;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ControllerUser {
@@ -81,13 +83,9 @@ public class ControllerUser {
 	@FXML
 	private Button btnAfficher;
 
-	@FXML
-	void initialize() throws Throwable, Exception, ClassNotFoundException, IOException {
-		
-		ObservableList<Stagiaire> items = FXCollections.observableArrayList();
-		items.addAll(Fichier.deserialisation());
-
+	void actualiserTableView(ObservableList<Stagiaire> items) {
 		tvStagiaire.setItems(items);
+
 		colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
 		colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
 		colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
@@ -98,39 +96,57 @@ public class ControllerUser {
 		colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
 		colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
 		colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
+	}
+	
+	@FXML
+	void initialize() throws Throwable, Exception, ClassNotFoundException, IOException {
 
-		btnConnecter.setOnAction(event -> {
-			final Node source = (Node) event.getSource();
-			final Stage stage = (Stage) source.getScene().getWindow();
-			stage.close();
+		ObservableList<Stagiaire> items = FXCollections.observableArrayList();
+		items.addAll(Fichier.deserialisation());
 
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/application/ApiConnexion.fxml"));
-			try {
-				loader.load();
-			} catch (IOException e) {
-				// TODO Bloc catch généré automatiquement
-				e.printStackTrace();
-			}
+		actualiserTableView(items);
 
-			Parent root = loader.getRoot();
-			Stage stage1 = new Stage();
-			stage.setScene(new Scene(root));
-			stage.showAndWait();
-
-		});
+		btnRechercher.setDefaultButton(true);
+		btnConnecter.setCancelButton(true);
+		
 
 	}
 
 	@FXML
-	public void itemStateChanged(ActionEvent event) {
+	private void connexionUser(ActionEvent event) throws IOException {
+		Stage stage = (Stage) btnConnecter.getScene().getWindow();
+		stage.close();
+//		
+		stage.onCloseRequestProperty().setValue(e -> Platform.exit());
+
+		Parent root = FXMLLoader.load(getClass().getResource("/application/ApiConnexion.fxml"));
+
+		Scene scene = new Scene(root);
+		Stage primaryStage = new Stage();
+		primaryStage.setTitle("Login");
+		primaryStage.setScene(scene);
+		primaryStage.initModality(Modality.WINDOW_MODAL);
+		primaryStage.initOwner(btnConnecter.getScene().getWindow());
+		primaryStage.show();
+	}
+
+	@FXML
+	private void handleButtonAction(ActionEvent event) throws Exception, Throwable {
+		System.out.println("test");
+
+		if  (event.getSource() == btnRechercher) {
+			itemStateChanged();
+		}
+		
+	}
+	
+	@FXML
+	public void itemStateChanged() {
 
 		if (cbRecherche.isSelected()) {
 		
 			System.out.println("case selectionnée");
 			
-			btnRechercher.setOnAction(actionEvent -> {
-
 				ObservableList<Stagiaire> items = FXCollections.observableArrayList();
 				try {
 					items.addAll(chercherStagiaireLarge(tfRech.getText()));
@@ -141,27 +157,13 @@ public class ControllerUser {
 					// TODO Bloc catch généré automatiquement
 					e.printStackTrace();
 				}
-				tvStagiaire.setItems(items);
-
-				colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-				colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-				colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
-				colAge.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("age"));
-				colAdresse.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("adresse"));
-				colMail.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("mail"));
-				colTel.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("tel"));
-				colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
-				colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
-				colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
-			});
+				actualiserTableView(items);
 
 		}
 
 		else {
 			
 			System.out.println("case non selectionné");
-			
-			btnRechercher.setOnAction(actionEvent -> {
 
 				ObservableList<Stagiaire> items = FXCollections.observableArrayList();
 				String rech = tfRech.getText();
@@ -178,17 +180,7 @@ public class ControllerUser {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					tvStagiaire.setItems(items);
-					colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-					colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-					colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
-					colAge.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("age"));
-					colAdresse.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("adresse"));
-					colMail.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("mail"));
-					colTel.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("tel"));
-					colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
-					colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
-					colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
+					actualiserTableView(items);
 					
 					System.out.println("arbre de recherche lancé");
 					
@@ -205,22 +197,10 @@ public class ControllerUser {
 							// TODO Bloc catch généré automatiquement
 							e.printStackTrace();
 						}
-						tvStagiaire.setItems(items);
-						colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-						colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-						colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
-						colAge.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("age"));
-						colAdresse.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("adresse"));
-						colMail.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("mail"));
-						colTel.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("tel"));
-						colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
-						colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
-						colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
+						actualiserTableView(items);
 						
 					}
-					
-					
-					
+
 				}
 				
 				else {
@@ -235,35 +215,20 @@ public class ControllerUser {
 					// TODO Bloc catch généré automatiquement
 					e.printStackTrace();
 				}
-				tvStagiaire.setItems(items);
-
-				colNom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("nom"));
-				colPrenom.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("prenom"));
-				colGenre.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("genre"));
-				colAge.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("age"));
-				colAdresse.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("adresse"));
-				colMail.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("mail"));
-				colTel.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("tel"));
-				colTheme.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("formation"));
-				colDebut.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("debutFormation"));
-				colDuree.setCellValueFactory(new PropertyValueFactory<Stagiaire, String>("finFormation"));
+				actualiserTableView(items);
 				
 				}
-			});
 
 		}
 
 	}
 
-	
 	private static List<Stagiaire> chercherStagiaire(String rech) throws ClassNotFoundException, IOException {
 
 		List<Stagiaire> triListe = new ArrayList<>();
 
 		triListe.clear();
 		Boolean result = false;
-
-		//System.out.println(rech);
 
 		if (rech.contains(" ")) {
 			String[] tabRech = rech.split(" ");
@@ -282,22 +247,17 @@ public class ControllerUser {
 				if (result == true) {
 					compteur++;
 					result = false;
-					System.out.println("compteur");
+					System.out.println("compteur" + compteur);
 				}
 				
 				if (compteur == listRech.size()) {
 					System.out.println("Entrée dans la boucle condition conmpteur validé");
 
 					triListe.add(stag);
-				}
-					
+				}	
 					
 			}
-			
-//			Stagiaire stag = Fichier.deserialisation().get(i);
-//			result = stag.rechercheLarge(rech);
 
-			
 		}
 
 	}
@@ -317,9 +277,6 @@ public class ControllerUser {
 				
 		}
 		
-		
-		
-		//System.out.println(triListe);
 		return triListe;
 
 	}
@@ -331,8 +288,6 @@ public class ControllerUser {
 
 		triListe.clear();
 		Boolean result = false;
-
-		//System.out.println(rech);
 
 		if (rech.contains(" ")) {
 			String[] tabRech = rech.split(" ");
@@ -354,10 +309,6 @@ public class ControllerUser {
 				result = false;
 				}
 			
-//			Stagiaire stag = Fichier.deserialisation().get(i);
-//			result = stag.rechercheLarge(rech);
-
-			
 			}
 
 		}
@@ -377,12 +328,10 @@ public class ControllerUser {
 				
 		}
 		
-		
-		
-		//System.out.println(triListe);
 		return triListe;
 
 	}
+	
 	
 private static List<Stagiaire> rechercheArbre(String rech) throws ClassNotFoundException, IOException {
 		
@@ -390,23 +339,45 @@ private static List<Stagiaire> rechercheArbre(String rech) throws ClassNotFoundE
 	Stagiaire pere = new Stagiaire("Pere","Korat","M","48","84 Rue Sergent Bichot - Paris","selim.k@gmail.com","0688132325","C#","07/02/2019","02/12/2022");
 	Noeud<Stagiaire> n1 = new Noeud<Stagiaire>(pere);	
 	monArbre.racine = n1;
-
 	List<Stagiaire> liste = Fichier.deserialisation();
 			
-	for (Stagiaire stagiaire : liste) {
-		monArbre.ajouterValeurEquilibre(stagiaire);
-	}
+		for (Stagiaire stagiaire : liste) {
+			monArbre.ajouterValeurEquilibre(stagiaire);
+		}
 
 	monArbre.supprimerValeur(pere);
 	
 		Stagiaire stagTemp = new Stagiaire(rech,"Nom","Genre","Age","Adresse","mail","tel","Formation","Debut","Fin");
 		return monArbre.rechercher_liste(stagTemp);
    	
+	}
+
+@FXML
+private void imprimerTable() {
+	btnImprimer.setOnAction(new EventHandler<ActionEvent>() {
+		public void handle(ActionEvent e) {
+			Printer printer = Printer.getDefaultPrinter();
+			PrinterJob job = PrinterJob.createPrinterJob();
+			PageLayout pageLayout = job.getPrinter().createPageLayout(Paper.A4, PageOrientation.PORTRAIT,
+					Printer.MarginType.DEFAULT);
+			 Stage dialogStage = new Stage(StageStyle.DECORATED);
+			job.getJobSettings().setPageLayout(pageLayout);
+		double scaleX = pageLayout.getPrintableWidth() / tvStagiaire.getBoundsInParent().getWidth();
+        double scaleY = pageLayout.getPrintableHeight() / tvStagiaire.getBoundsInParent().getHeight();
+        tvStagiaire.getTransforms().add(new Scale(scaleX, scaleY));
+			
+			
+			if (job != null) {
+				boolean successPrintDialog = job.showPrintDialog(dialogStage.getOwner());
+				if (successPrintDialog) {
+					boolean success = job.printPage(pageLayout, tvStagiaire);
+					if (success) {
+						job.endJob();
+					}
+					
+				}
+			}
+		}
+	});
 }
-
-
-	
-
-
-	
 }
