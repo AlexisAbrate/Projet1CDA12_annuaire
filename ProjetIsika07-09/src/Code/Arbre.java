@@ -218,6 +218,7 @@ private static void chercherStagiaire(String rech, List<Stagiaire> liste) {
         else if (currentNoeud.donnee.compareTo(valeur) == 0) {
             listRetour.add(currentNoeud.donnee);
             rechercher_liste_annexe(listRetour, currentNoeud.droit, valeur);
+            rechercher_liste_annexe(listRetour, currentNoeud.gauche, valeur);
             return listRetour;
         } else if (currentNoeud.donnee.compareTo(valeur) > 0) {
             return rechercher_liste_annexe(listRetour, currentNoeud.gauche, valeur);

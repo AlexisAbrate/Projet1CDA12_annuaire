@@ -18,12 +18,12 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btnLogin" layoutX="68.0" layoutY="181.0" mnemonicParsing="false" onAction="#login" prefHeight="45.0" prefWidth="121.0" text="ok">
+      <Button fx:id="btnLogin" defaultButton="true" layoutX="68.0" layoutY="181.0" mnemonicParsing="false" onAction="#login" prefHeight="45.0" prefWidth="121.0" text="ok">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnAnnuler" layoutX="209.0" layoutY="181.0" mnemonicParsing="false" onAction="#fermerLogin" prefHeight="45.0" prefWidth="121.0" text="Annuler">
+      <Button fx:id="btnAnnuler" cancelButton="true" layoutX="209.0" layoutY="181.0" mnemonicParsing="false" onAction="#fermerLogin" prefHeight="45.0" prefWidth="121.0" text="Annuler">
          <font>
             <Font size="19.0" />
          </font>
