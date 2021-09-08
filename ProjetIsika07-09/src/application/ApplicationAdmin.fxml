@@ -227,8 +227,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></CheckBox>
-      <Button fx:id="btnDemo" layoutX="312.0" layoutY="642.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Démo" />
-      <MenuButton layoutX="124.0" layoutY="14.0" mnemonicParsing="false" text="Paramètres">
+      <Button fx:id="btnDemo" layoutX="312.0" layoutY="642.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-radius: 2em;" text="Démo">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <MenuButton layoutX="124.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Paramètres">
         <items>
             <CheckMenuItem fx:id="cbPrenomAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Prénom" />
             <CheckMenuItem fx:id="cbNomAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Nom" />
@@ -241,13 +247,31 @@
             <CheckMenuItem fx:id="cbDebutAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Début Formation" />
             <CheckMenuItem fx:id="cbFinAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Fin Formation" />
         </items>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </MenuButton>
       <ImageView fitHeight="29.0" fitWidth="24.0" layoutX="448.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/pngegg.png" />
          </image>
       </ImageView>
-      <Button layoutX="235.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
-      <Button layoutX="312.0" layoutY="14.0" mnemonicParsing="false" text="Recherche Avancée" />
+      <Button layoutX="235.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Help">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button layoutX="312.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Recherche Avancée">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
    </children>
 </AnchorPane>
