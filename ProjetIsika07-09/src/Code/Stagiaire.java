@@ -1,11 +1,7 @@
 package Code;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javafx.fxml.FXML;
+import java.util.Comparator;
 
 public class Stagiaire implements Serializable, Comparable<Stagiaire> {
 
@@ -39,8 +35,16 @@ public class Stagiaire implements Serializable, Comparable<Stagiaire> {
 	
 	@Override
 	public int compareTo(Stagiaire o) {
-		return this.getPrenom().compareTo(o.getPrenom()) ;
+		return this.getPrenom().toLowerCase().compareTo(o.getPrenom().toLowerCase()) ;
 	}
+	
+	public static Comparator<Stagiaire> ComparatorPrenom = new Comparator<Stagiaire>() {
+	      
+        @Override
+        public int compare(Stagiaire s1, Stagiaire s2) {
+            return s1.getPrenom().toLowerCase().compareTo(s2.getPrenom().toLowerCase());
+        }
+    };
 	
 public Boolean recherche(String recherche) {
 		
@@ -70,7 +74,8 @@ public Boolean recherche2(String recherche, String recherche2) {
 		}
 		else { return false; }
 	}
-	
+
+
 	public String getPrenom() {
 		return prenom;
 	}

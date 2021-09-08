@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import Code.Arbre;
@@ -13,19 +14,29 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+//import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ControllerUser {
 
@@ -75,14 +86,180 @@ public class ControllerUser {
 	private Button btnRechercher;
 
 	@FXML
-	private Button btnRechercheLarge;
-
-	@FXML
 	private Button btnImprimer;
 
 	@FXML
 	private Button btnAfficher;
 
+	@FXML
+	private Button btnParametre;
+	
+	@FXML
+	private CheckMenuItem cbPrenomAdmin;
+	@FXML
+	private CheckMenuItem cbNomAdmin;
+	@FXML
+	private CheckMenuItem cbGenreAdmin;
+	@FXML
+	private CheckMenuItem cbAgeAdmin;
+	@FXML
+	private CheckMenuItem cbAdresseAdmin;
+	@FXML
+	private CheckMenuItem cbMailAdmin;
+	@FXML
+	private CheckMenuItem cbTelAdmin;
+	@FXML
+	private CheckMenuItem cbThemeAdmin;
+	@FXML
+	private CheckMenuItem cbDebutAdmin;
+	@FXML
+	private CheckMenuItem cbFinAdmin;
+	
+	private int affichageColTb = 0;
+	
+	
+	void affichageColTb() {
+	
+		if (affichageColTb == 0) {
+			
+			cbPrenomAdmin.setSelected(true);
+			cbNomAdmin.setSelected(true);
+			cbGenreAdmin.setSelected(false);
+			cbAgeAdmin.setSelected(true);
+			cbAdresseAdmin.setSelected(false);
+			cbMailAdmin.setSelected(true);
+			cbTelAdmin.setSelected(true);
+			cbThemeAdmin.setSelected(true);
+			cbDebutAdmin.setSelected(true);
+			cbFinAdmin.setSelected(true);
+			
+			colPrenom.setVisible(true);
+			colNom.setVisible(true);
+			colGenre.setVisible(false);
+			colAge.setVisible(true);
+			colAdresse.setVisible(false);
+			colMail.setVisible(true);
+			colTel.setVisible(true);
+			colTheme.setVisible(true);
+			colDebut.setVisible(true);
+			colDuree.setVisible(true);
+			
+			affichageColTb++;
+		}
+	}
+	
+	@FXML
+	private void cbParametreAdmin(ActionEvent event) throws Exception, Throwable {
+		System.out.println("cbParametreAdmin");
+
+//		colDebut.getPrefWidth();
+		
+		if (cbPrenomAdmin.isSelected()) {
+			colPrenom.setVisible(true);
+		}
+		
+		else if (!cbPrenomAdmin.isSelected()) {
+			colPrenom.setVisible(false);
+		}
+
+		if (cbNomAdmin.isSelected()) {
+			colNom.setVisible(true);
+		}
+		
+		else if (!cbNomAdmin.isSelected()) {
+			colNom.setVisible(false);
+		}
+
+		if (cbGenreAdmin.isSelected()) {
+			colGenre.setVisible(true);
+		}
+		
+		else if (!cbGenreAdmin.isSelected()) {
+			colGenre.setVisible(false);
+		}
+		
+		if (cbAgeAdmin.isSelected()) {
+			colAge.setVisible(true);
+		}
+		
+		else if (!cbAgeAdmin.isSelected()) {
+			colAge.setVisible(false);
+		}
+		
+		if (cbAdresseAdmin.isSelected()) {
+			colAdresse.setVisible(true);
+		}
+		
+		else if (!cbAdresseAdmin.isSelected()) {
+			colAdresse.setVisible(false);
+		}
+		
+		if (cbMailAdmin.isSelected()) {
+			colMail.setVisible(true);
+		}
+		
+		else if (!cbMailAdmin.isSelected()) {
+			colMail.setVisible(false);
+		}
+		
+		if (cbTelAdmin.isSelected()) {
+			colTel.setVisible(true);
+		}
+		
+		else if (!cbTelAdmin.isSelected()) {
+			colTel.setVisible(false);
+		}
+		
+		if (cbThemeAdmin.isSelected()) {
+			colTheme.setVisible(true);
+		}
+		
+		else if (!cbThemeAdmin.isSelected()) {
+			colTheme.setVisible(false);
+		}
+		
+		if (cbDebutAdmin.isSelected()) {
+			colDebut.setVisible(true);
+		}
+		
+		else if (!cbDebutAdmin.isSelected()) {
+			colDebut.setVisible(false);
+		}
+		
+		if (cbFinAdmin.isSelected()) {
+			colDuree.setVisible(true);
+		}
+		
+		else if (!cbFinAdmin.isSelected()) {
+			colDuree.setVisible(false);
+		}
+	}
+	
+	@FXML
+	public void keyContact(KeyEvent evt) {
+		System.out.println("key event detected");
+		
+		if (cbRecherche.isSelected()) {
+		itemStateChanged();
+		}	
+	}
+	
+	public static String upperCaseFirst(String val) {
+		char[] arr = val.toCharArray();
+	      arr[0] = Character.toUpperCase(arr[0]);
+	      return new String(arr);
+	}
+	
+	public void formatageStagiaire(Stagiaire ancienS) {
+		
+		//Stagiaire newStag = new Stagiaire("","",genre,age,adresse,mail,tel,formation,debutFormation,finFormation);
+		
+		ancienS.setPrenom(upperCaseFirst(ancienS.getPrenom().toLowerCase()));
+		
+		ancienS.setNom(ancienS.getNom().toUpperCase());
+		
+	}
+	
 	void actualiserTableView(ObservableList<Stagiaire> items) {
 		tvStagiaire.setItems(items);
 
@@ -104,10 +281,19 @@ public class ControllerUser {
 		ObservableList<Stagiaire> items = FXCollections.observableArrayList();
 		items.addAll(Fichier.deserialisation());
 
+		for (int i = 0; i < items.size(); i++) {
+		      formatageStagiaire(items.get(i));
+		    }
+		
+		Collections.sort(items, Stagiaire.ComparatorPrenom);
+		
+		affichageColTb();
+		
 		actualiserTableView(items);
 
 		btnRechercher.setDefaultButton(true);
 		btnConnecter.setCancelButton(true);
+		
 
 	}
 
@@ -136,6 +322,7 @@ public class ControllerUser {
 		if  (event.getSource() == btnRechercher) {
 			itemStateChanged();
 		}
+		
 	}
 	
 	@FXML
@@ -228,6 +415,8 @@ public class ControllerUser {
 		triListe.clear();
 		Boolean result = false;
 
+		//System.out.println(rech);
+
 		if (rech.contains(" ")) {
 			String[] tabRech = rech.split(" ");
 			List<String> listRech = Arrays.asList(tabRech);
@@ -252,10 +441,11 @@ public class ControllerUser {
 					System.out.println("Entrée dans la boucle condition conmpteur validé");
 
 					triListe.add(stag);
-				}	
+				}
+					
 					
 			}
-
+			
 		}
 
 	}
@@ -274,11 +464,11 @@ public class ControllerUser {
 			}
 				
 		}
-		
+		//System.out.println(triListe);
 		return triListe;
-
 	}
 
+	
 	
 	private static List<Stagiaire> chercherStagiaireLarge(String rech) throws ClassNotFoundException, IOException {
 
@@ -287,29 +477,37 @@ public class ControllerUser {
 		triListe.clear();
 		Boolean result = false;
 
+		//System.out.println(rech);
+
 		if (rech.contains(" ")) {
 			String[] tabRech = rech.split(" ");
 			List<String> listRech = Arrays.asList(tabRech);
 		
 		for (int i = 0; i < (Fichier.deserialisation().size()); i++) {
 			Stagiaire stag = Fichier.deserialisation().get(i);
+			int compteur = 0;
 			
 			for(int n=0; n<(listRech.size()); n++) {
 				
 				result = stag.rechercheLarge(listRech.get(n));
 				
 				if (result == true) {
-					triListe.add(stag);
+					compteur++;
 					result = false;
-					break;
+					
 					}
+				
+				if (compteur == listRech.size()) {
+					System.out.println("Entrée dans la boucle condition conmpteur validé");
 
-				result = false;
+					triListe.add(stag);
+
 				}
 			
 			}
 
 		}
+	}
 		
 		else {
 			for (int i = 0; i < (Fichier.deserialisation().size()); i++) {
@@ -330,7 +528,6 @@ public class ControllerUser {
 
 	}
 	
-	
 private static List<Stagiaire> rechercheArbre(String rech) throws ClassNotFoundException, IOException {
 		
 	Arbre<Stagiaire> monArbre = new Arbre<Stagiaire>();
@@ -339,15 +536,34 @@ private static List<Stagiaire> rechercheArbre(String rech) throws ClassNotFoundE
 	monArbre.racine = n1;
 	List<Stagiaire> liste = Fichier.deserialisation();
 			
-		for (Stagiaire stagiaire : liste) {
-			monArbre.ajouterValeurEquilibre(stagiaire);
-		}
+	for (Stagiaire stagiaire : liste) {
+		monArbre.ajouterValeurEquilibre(stagiaire);
+	}
 
 	monArbre.supprimerValeur(pere);
 	
 		Stagiaire stagTemp = new Stagiaire(rech,"Nom","Genre","Age","Adresse","mail","tel","Formation","Debut","Fin");
 		return monArbre.rechercher_liste(stagTemp);
    	
-	}
+}
 
+
+
+
+public void imprimeTable(ActionEvent event) throws IOException {
+	Stage stage = (Stage) btnImprimer.getScene().getWindow();
+//	stage.close();
+////	
+//	stage.onCloseRequestProperty().setValue(e -> Platform.exit());
+
+	Parent root = FXMLLoader.load(getClass().getResource("/application/ApplicationPrint.fxml"));
+
+	Scene scene = new Scene(root);
+	Stage primaryStage = new Stage();
+	primaryStage.setTitle("Liste des stagiaires");
+	primaryStage.setScene(scene);
+	primaryStage.initModality(Modality.WINDOW_MODAL);
+	primaryStage.initOwner(btnImprimer.getScene().getWindow());
+	primaryStage.show();
+}
 }

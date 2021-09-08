@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +18,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -27,19 +30,19 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ContextMenu;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class ControllerAdmin {
-
 
 	@FXML
 	private TextField tfNom;
@@ -121,9 +124,6 @@ public class ControllerAdmin {
 
 	@FXML
 	private Button btnRechercher;
-	
-	@FXML
-	private Button btnRechercheLarge;
 
 	@FXML
 	private Button btnImprimer;
@@ -135,8 +135,181 @@ public class ControllerAdmin {
 	private Button btnAfficher;
 	
 	@FXML
-	private Button btn;
+	private Button btnRechAvancee;
 	
+	@FXML
+	private Button btnDemo;
+	
+	@FXML
+	private Button btnParametre;
+	
+	@FXML
+	private CheckMenuItem cbPrenomAdmin;
+	@FXML
+	private CheckMenuItem cbNomAdmin;
+	@FXML
+	private CheckMenuItem cbGenreAdmin;
+	@FXML
+	private CheckMenuItem cbAgeAdmin;
+	@FXML
+	private CheckMenuItem cbAdresseAdmin;
+	@FXML
+	private CheckMenuItem cbMailAdmin;
+	@FXML
+	private CheckMenuItem cbTelAdmin;
+	@FXML
+	private CheckMenuItem cbThemeAdmin;
+	@FXML
+	private CheckMenuItem cbDebutAdmin;
+	@FXML
+	private CheckMenuItem cbFinAdmin;
+	
+	private int affichageColTb = 0;
+	
+	
+	void affichageColTb() {
+	
+		if (affichageColTb == 0) {
+			
+			cbPrenomAdmin.setSelected(true);
+			cbNomAdmin.setSelected(true);
+			cbGenreAdmin.setSelected(false);
+			cbAgeAdmin.setSelected(true);
+			cbAdresseAdmin.setSelected(false);
+			cbMailAdmin.setSelected(true);
+			cbTelAdmin.setSelected(true);
+			cbThemeAdmin.setSelected(true);
+			cbDebutAdmin.setSelected(true);
+			cbFinAdmin.setSelected(true);
+			
+			colPrenom.setVisible(true);
+			colNom.setVisible(true);
+			colGenre.setVisible(false);
+			colAge.setVisible(true);
+			colAdresse.setVisible(false);
+			colMail.setVisible(true);
+			colTel.setVisible(true);
+			colTheme.setVisible(true);
+			colDebut.setVisible(true);
+			colDuree.setVisible(true);
+			
+			affichageColTb++;
+		}
+	}
+	
+	@FXML
+	private void cbParametreAdmin(ActionEvent event) throws Exception, Throwable {
+		System.out.println("cbParametreAdmin");
+
+//		colDebut.getPrefWidth();
+		
+		if (cbPrenomAdmin.isSelected()) {
+			colPrenom.setVisible(true);
+		}
+		
+		else if (!cbPrenomAdmin.isSelected()) {
+			colPrenom.setVisible(false);
+		}
+
+		if (cbNomAdmin.isSelected()) {
+			colNom.setVisible(true);
+		}
+		
+		else if (!cbNomAdmin.isSelected()) {
+			colNom.setVisible(false);
+		}
+
+		if (cbGenreAdmin.isSelected()) {
+			colGenre.setVisible(true);
+		}
+		
+		else if (!cbGenreAdmin.isSelected()) {
+			colGenre.setVisible(false);
+		}
+		
+		if (cbAgeAdmin.isSelected()) {
+			colAge.setVisible(true);
+		}
+		
+		else if (!cbAgeAdmin.isSelected()) {
+			colAge.setVisible(false);
+		}
+		
+		if (cbAdresseAdmin.isSelected()) {
+			colAdresse.setVisible(true);
+		}
+		
+		else if (!cbAdresseAdmin.isSelected()) {
+			colAdresse.setVisible(false);
+		}
+		
+		if (cbMailAdmin.isSelected()) {
+			colMail.setVisible(true);
+		}
+		
+		else if (!cbMailAdmin.isSelected()) {
+			colMail.setVisible(false);
+		}
+		
+		if (cbTelAdmin.isSelected()) {
+			colTel.setVisible(true);
+		}
+		
+		else if (!cbTelAdmin.isSelected()) {
+			colTel.setVisible(false);
+		}
+		
+		if (cbThemeAdmin.isSelected()) {
+			colTheme.setVisible(true);
+		}
+		
+		else if (!cbThemeAdmin.isSelected()) {
+			colTheme.setVisible(false);
+		}
+		
+		if (cbDebutAdmin.isSelected()) {
+			colDebut.setVisible(true);
+		}
+		
+		else if (!cbDebutAdmin.isSelected()) {
+			colDebut.setVisible(false);
+		}
+		
+		if (cbFinAdmin.isSelected()) {
+			colDuree.setVisible(true);
+		}
+		
+		else if (!cbFinAdmin.isSelected()) {
+			colDuree.setVisible(false);
+		}
+		
+	}
+
+//FXML
+	void demo() {
+
+		tfPrenom.setText("John");
+		tfNom.setText("Lennon");
+        tfGenre.setText("M");
+        tfAge.setText("33");
+        tfAdresse.setText("36 rue le Marshall - Paris");
+        tfTel.setText("06 65 12 98 53");
+        tfMail.setText("john.lennon@gmail.com");
+        tfTheme.setText("Java");
+        tfDebut.setText("06/09/2021");
+        tfDuree.setText("01/07/2022");
+	}
+	
+	
+	@FXML
+	public void keyContact(KeyEvent evt) {
+		System.out.println("key event detected");
+		
+		if (cbRecherche.isSelected()) {
+		itemStateChanged();
+		}
+		
+	}
 	
 	@FXML
 	public void choixContact() {
@@ -146,7 +319,6 @@ public class ControllerAdmin {
 			}
 		});
 	}
-		
 		
 	
 	public void onEdit() {
@@ -172,7 +344,6 @@ public class ControllerAdmin {
 	}
 	
 	
-	
 	void actualiserTableView(ObservableList<Stagiaire> items) {
 		tvStagiaire.setItems(items);
 
@@ -192,13 +363,24 @@ public class ControllerAdmin {
 	void initialize() throws Throwable, Exception, ClassNotFoundException, IOException {
 
 		ObservableList<Stagiaire> items = FXCollections.observableArrayList();
+		
 		items.addAll(Fichier.deserialisation());
 
+		for (int i = 0; i < items.size(); i++) {
+		      formatageStagiaire(items.get(i));
+		    }
+		
+		Collections.sort(items, Stagiaire.ComparatorPrenom);
+		
+		affichageColTb();
+		
 		actualiserTableView(items);
 
 		btnRechercher.setDefaultButton(true);
 		btnDeconnecter.setCancelButton(true);
 
+//		cbRecherche.setSelected(true);
+//		cbRecherche.setSelected(false);
 	
 	}
 	
@@ -325,16 +507,37 @@ public class ControllerAdmin {
 		else if  (event.getSource() == btnRechercher) {
 			itemStateChanged();
 		}
+		
+		else if (event.getSource() == btnDemo) {
+			demo();
+		}
+		
 	}
 
 		
-		@FXML
-		
+	public static String upperCaseFirst(String val) {
+		char[] arr = val.toCharArray();
+	      arr[0] = Character.toUpperCase(arr[0]);
+	      return new String(arr);
+	}
+
+public void formatageStagiaire(Stagiaire ancienS) {
+	
+	//Stagiaire newStag = new Stagiaire("","",genre,age,adresse,mail,tel,formation,debutFormation,finFormation);
+	
+	ancienS.setPrenom(upperCaseFirst(ancienS.getPrenom().toLowerCase()));
+	
+	ancienS.setNom(ancienS.getNom().toUpperCase());
+	
+}
+	
+		//@FXML
 		private void AjouterEnregistrement() throws Exception, Throwable {
 			
 			ObservableList<Stagiaire> list = tvStagiaire.getItems(); //1 recuperation de la liste des contact deja presents
 			System.out.println(list);
 			Stagiaire stagiaire = new Stagiaire(tfPrenom.getText(),tfNom.getText(),tfGenre.getText(),tfAge.getText(),tfAdresse.getText(),tfMail.getText(),tfTel.getText(),tfTheme.getText(),tfDebut.getText(),tfDuree.getText());
+			formatageStagiaire(stagiaire);
 			System.out.println(stagiaire.toString());
 			
 			if (stagiaire.getNom().equals("") || stagiaire.getPrenom().equals("") || stagiaire.getGenre().equals("") 
@@ -372,7 +575,7 @@ public class ControllerAdmin {
 				return;
 			};
 			
-			String regExpTel = "#^0[1-68][0-9]{8}$#";
+			String regExpTel = "#^0[1-68]([-. ]?[0-9]{2}){4}$#";
 			if (!tfTel.getText().matches(regExpTel)) {
 				Alert alert = new Alert(AlertType.CONFIRMATION, "Le numéro de téléphone que vous avez saisie semble incorrect. /n Souhaitez vous vraiment ajouter ce nouveau stagiaire avec le numéro de téléphone suivant ? : " + tfTel.getText());
 				Optional<ButtonType> result = alert.showAndWait();
@@ -384,6 +587,7 @@ public class ControllerAdmin {
 				
 			};
 			
+			formatageStagiaire(stagiaire);
 			list.add(stagiaire); // 2 ajout du nouvel eelement dans la liste
 				System.out.println("stagiaire ajouté");
 				System.out.println(list);
@@ -399,29 +603,88 @@ public class ControllerAdmin {
 		private void UpdateEnregistrement() throws ClassNotFoundException, Exception, Throwable {
 			
 			 Stagiaire selectedPerson = tvStagiaire.getSelectionModel().getSelectedItem();
-		     System.out.println(selectedPerson);    
+			 formatageStagiaire(selectedPerson);
+			 System.out.println(selectedPerson);    
 		     
-		     selectedPerson.setPrenom(tfPrenom.getText());
-		     selectedPerson.setNom(tfNom.getText());
-		     selectedPerson.setGenre(tfGenre.getText());
-		     selectedPerson.setAge(tfAge.getText());
-		     selectedPerson.setAdresse(tfAdresse.getText());
-		     selectedPerson.setMail(tfMail.getText());
-		     selectedPerson.setTel(tfTel.getText());
-		     selectedPerson.setFormation(tfTheme.getText());
-		     selectedPerson.setDebutFormation(tfDebut.getText());
-		     selectedPerson.setFinFormation(tfDuree.getText());
+		     List<Stagiaire> liste = new ArrayList<>();
+		     liste.addAll(Fichier.deserialisation());
 		     
-		     
-		     ObservableList<Stagiaire> list = tvStagiaire.getItems();
-		     List<Stagiaire> listS = new ArrayList<>();
-		     listS.addAll(list);
-			 Fichier.serialisation(listS);
+		     for (int i = 0; i < (liste.size()); i++) {
+					Stagiaire stag = liste.get(i);
+					
+					if (stag.toString().equals(selectedPerson.toString())) {
+						
+						System.out.println("stagiaire de la liste ser trouvé pour modification");
+						
+						 stag.setPrenom(tfPrenom.getText());
+						 stag.setNom(tfNom.getText());
+						 stag.setGenre(tfGenre.getText());
+						 stag.setAge(tfAge.getText());
+						 stag.setAdresse(tfAdresse.getText());
+						 stag.setMail(tfMail.getText());
+						 stag.setTel(tfTel.getText());
+						 stag.setFormation(tfTheme.getText());
+						 stag.setDebutFormation(tfDebut.getText());
+						 stag.setFinFormation(tfDuree.getText());
+						 
+						 formatageStagiaire(stag);
+						 
+						 if (stag.getNom().equals("") || stag.getPrenom().equals("") || stag.getGenre().equals("") 
+									|| stag.getAge().equals("") || stag.getAdresse().equals("") || stag.getMail().equals("")  
+									|| stag.getTel().equals("") || stag.getFormation().equals("") || stag.getDebutFormation().equals("")
+									|| stag.getFinFormation().equals(""))   {
+								Alert message = new Alert(AlertType.INFORMATION);
+								message.setTitle("Attention");
+								message.setHeaderText("Le stagiaire ne peut pas être ajouté");
+								message.setContentText("Pour ajouter un nouveau stagiaire doit remplir tous les champs");
+								message.showAndWait();
+								return;
+							}
+							
+							for (Stagiaire stag2 : Fichier.deserialisation()) {
+								if (stag.toString().equals(stag2.toString())) {
+									
+									Alert alert = new Alert(AlertType.INFORMATION, "Ce stagiaire existe déjà dans l'annuaire");
+									alert.showAndWait();
+									return;
+								}
+							}
+						
+							String regExpDate = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)?[0-9]{2}$";
+							if (!tfDebut.getText().matches(regExpDate) || !tfDuree.getText().matches(regExpDate)) {
+								Alert alert = new Alert(AlertType.INFORMATION, "Date de formation invalide : veuillez entrer une date au format : jj/mm/aaaa ou jj/mm/aa");
+								alert.showAndWait();
+								return;
+							};
+
+							String regExpMail = "^[\\w.-]+@[\\w.-]+\\.[a-z]{2,}$";
+							if (!tfMail.getText().matches(regExpMail)) {
+								Alert alert = new Alert(AlertType.INFORMATION, "L'adresse mail est incorrecte. Veuillez saisir une adresse mail valide");
+								alert.showAndWait();
+								return;
+							};
+							
+							String regExpTel = "^0[1-68]([-. ]?[0-9]{2}){4}$";
+							if (!tfTel.getText().matches(regExpTel)) {
+								Alert alert = new Alert(AlertType.CONFIRMATION, "Le numéro de téléphone que vous avez saisie semble incorrect. /n Souhaitez vous vraiment ajouter ce nouveau stagiaire avec le numéro de téléphone suivant ? : " + tfTel.getText());
+								Optional<ButtonType> result = alert.showAndWait();
+								if (result.isPresent() && result.get() == ButtonType.OK) {
+									
+								}
+								
+								else return;
+								
+							};
+						// System.out.println(stag.toString());
+						 break;
+					}
+		     }
+
+			 Fichier.serialisation(liste);
+
 		     clear();
 		     initialize();
-			
-			
-
+		  
 		}
 
 		private void DeleteEnregistrement() throws Exception, Throwable {
@@ -509,10 +772,6 @@ public class ControllerAdmin {
 						
 				}
 				
-//				Stagiaire stag = Fichier.deserialisation().get(i);
-//				result = stag.rechercheLarge(rech);
-
-				
 			}
 
 		}
@@ -531,12 +790,8 @@ public class ControllerAdmin {
 				}
 					
 			}
-			
-			
-			
 			//System.out.println(triListe);
 			return triListe;
-
 		}
 
 		
@@ -556,27 +811,29 @@ public class ControllerAdmin {
 			
 			for (int i = 0; i < (Fichier.deserialisation().size()); i++) {
 				Stagiaire stag = Fichier.deserialisation().get(i);
+				int compteur = 0;
 				
 				for(int n=0; n<(listRech.size()); n++) {
 					
 					result = stag.rechercheLarge(listRech.get(n));
 					
 					if (result == true) {
-						triListe.add(stag);
+						compteur++;
 						result = false;
-						break;
+						
 						}
+					
+					if (compteur == listRech.size()) {
+						System.out.println("Entrée dans la boucle condition conmpteur validé");
 
-					result = false;
+						triListe.add(stag);
+
 					}
-				
-//				Stagiaire stag = Fichier.deserialisation().get(i);
-//				result = stag.rechercheLarge(rech);
-
 				
 				}
 
 			}
+		}
 			
 			else {
 				for (int i = 0; i < (Fichier.deserialisation().size()); i++) {
@@ -593,9 +850,6 @@ public class ControllerAdmin {
 					
 			}
 			
-			
-			
-			//System.out.println(triListe);
 			return triListe;
 
 		}
@@ -618,40 +872,25 @@ public class ControllerAdmin {
 			return monArbre.rechercher_liste(stagTemp);
 	   	
 	}
+		
 	
-	
-//		@FXML
-//		private void imprimerTable(){
-//		
-//		btnImprimer.setOnAction(new EventHandler<ActionEvent>() {
-//	        public void handle(ActionEvent e){
-//	            Printer printer = Printer.getDefaultPrinter();
-//	            Stage dialogStage = new Stage(StageStyle.DECORATED);            
-//	            PrinterJob job = PrinterJob.createPrinterJob(printer);
-//	                if (job != null) {                    
-//	                    boolean showDialog = job.showPageSetupDialog(dialogStage);
-//	                    if (showDialog) {                        
-//	                        tvStagiaire.setScaleX(0.60);
-//	                        tvStagiaire.setScaleY(0.60);
-//	                        tvStagiaire.setTranslateX(-220);
-//	                        tvStagiaire.setTranslateY(-70);
-//	                    boolean success = job.printPage(tvStagiaire);
-//	                        if (success) {
-//	                             job.endJob(); 
-//	                        } 
-//	                        tvStagiaire.setTranslateX(0);
-//	                        tvStagiaire.setTranslateY(0);               
-//	                        tvStagiaire.setScaleX(1.0);
-//	                        tvStagiaire.setScaleY(1.0);                                              
-//	                        System.out.println(tvStagiaire);
-//	                    }    
-//	                                }
-//	        }});
-//	    ContextMenu menu = new ContextMenu();
-//	    menu.getItems().addAll();
-//	    tvStagiaire.setContextMenu(menu);
-//
-//}
+	public void imprimeTable(ActionEvent event) throws IOException {
+		Stage stage = (Stage) btnImprimer.getScene().getWindow();
+//		stage.close();
+	////	
+//		stage.onCloseRequestProperty().setValue(e -> Platform.exit());
 
+		Parent root = FXMLLoader.load(getClass().getResource("/application/ApplicationPrint.fxml"));
+
+		Scene scene = new Scene(root);
+		Stage primaryStage = new Stage();
+		primaryStage.setTitle("Liste des stagiaires");
+		primaryStage.setScene(scene);
+		primaryStage.initModality(Modality.WINDOW_MODAL);
+		primaryStage.initOwner(btnImprimer.getScene().getWindow());
+		primaryStage.show();
+	}
+	
+	
 }
 
