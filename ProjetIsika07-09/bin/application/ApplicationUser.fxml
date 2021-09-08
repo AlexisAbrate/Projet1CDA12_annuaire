@@ -21,7 +21,7 @@
             <TableColumn fx:id="colPrenom" prefWidth="113.0" text="Prenom" />
             <TableColumn fx:id="colGenre" prefWidth="76.0" text="Genre" />
             <TableColumn fx:id="colAge" prefWidth="72.0" text="Age" />
-            <TableColumn fx:id="colAdresse" prefWidth="88.0" text="Ville" />
+            <TableColumn fx:id="colAdresse" prefWidth="88.0" text="Adresse" />
             <TableColumn fx:id="colMail" prefWidth="100.0" text="Mail" />
             <TableColumn fx:id="colTel" prefWidth="105.0" text="Tel" />
             <TableColumn fx:id="colTheme" prefWidth="122.0" text="Theme " />
@@ -54,7 +54,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></CheckBox>
-      <MenuButton layoutX="172.0" layoutY="37.0" mnemonicParsing="false" text="Paramètres">
+      <MenuButton layoutX="172.0" layoutY="37.0" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Paramètres">
         <items>
             <CheckMenuItem fx:id="cbPrenomAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Prénom" />
             <CheckMenuItem fx:id="cbNomAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Nom" />
@@ -67,6 +67,9 @@
             <CheckMenuItem fx:id="cbDebutAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Début Formation" />
             <CheckMenuItem fx:id="cbFinAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Fin Formation" />
         </items>
+         <effect>
+            <DropShadow />
+         </effect>
       </MenuButton>
    </children>
 </AnchorPane>
