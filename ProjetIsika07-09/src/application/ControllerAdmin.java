@@ -512,6 +512,11 @@ public class ControllerAdmin {
 			demo();
 		}
 		
+		else if (event.getSource() == btnAfficher) {
+			tfRech.clear();
+			initialize();
+		}
+		
 	}
 
 		
@@ -575,17 +580,17 @@ public void formatageStagiaire(Stagiaire ancienS) {
 				return;
 			};
 			
-			String regExpTel = "#^0[1-68]([-. ]?[0-9]{2}){4}$#";
-			if (!tfTel.getText().matches(regExpTel)) {
-				Alert alert = new Alert(AlertType.CONFIRMATION, "Le numéro de téléphone que vous avez saisie semble incorrect. /n Souhaitez vous vraiment ajouter ce nouveau stagiaire avec le numéro de téléphone suivant ? : " + tfTel.getText());
-				Optional<ButtonType> result = alert.showAndWait();
-				if (result.isPresent() && result.get() == ButtonType.OK) {
-					
-				}
-				
-				else return;
-				
-			};
+//			String regExpTel = "^0[1-68]([-. ]?[0-9]{2}){4}$";
+//			if (!tfTel.getText().matches(regExpTel)) {
+//				Alert alert = new Alert(AlertType.CONFIRMATION, "Le numéro de téléphone que vous avez saisie semble incorrect. /n Souhaitez vous vraiment ajouter ce nouveau stagiaire avec le numéro de téléphone suivant ? : " + tfTel.getText());
+//				Optional<ButtonType> result = alert.showAndWait();
+//				if (result.isPresent() && result.get() == ButtonType.OK) {
+//					
+//				}
+//				
+//				else return;
+//				
+//			};
 			
 			formatageStagiaire(stagiaire);
 			list.add(stagiaire); // 2 ajout du nouvel eelement dans la liste
@@ -664,17 +669,17 @@ public void formatageStagiaire(Stagiaire ancienS) {
 								return;
 							};
 							
-							String regExpTel = "^0[1-68]([-. ]?[0-9]{2}){4}$";
-							if (!tfTel.getText().matches(regExpTel)) {
-								Alert alert = new Alert(AlertType.CONFIRMATION, "Le numéro de téléphone que vous avez saisie semble incorrect. /n Souhaitez vous vraiment ajouter ce nouveau stagiaire avec le numéro de téléphone suivant ? : " + tfTel.getText());
-								Optional<ButtonType> result = alert.showAndWait();
-								if (result.isPresent() && result.get() == ButtonType.OK) {
-									
-								}
-								
-								else return;
-								
-							};
+//							String regExpTel = "^0[1-68]([-. ]?[0-9]{2}){4}$";
+//							if (!tfTel.getText().matches(regExpTel)) {
+//								Alert alert = new Alert(AlertType.CONFIRMATION, "Le numéro de téléphone que vous avez saisie semble incorrect. /n Souhaitez vous vraiment ajouter ce nouveau stagiaire avec le numéro de téléphone suivant ? : " + tfTel.getText());
+//								Optional<ButtonType> result = alert.showAndWait();
+//								if (result.isPresent() && result.get() == ButtonType.OK) {
+//									
+//								}
+//								
+//								else return;
+//								
+//							};
 						// System.out.println(stag.toString());
 						 break;
 					}

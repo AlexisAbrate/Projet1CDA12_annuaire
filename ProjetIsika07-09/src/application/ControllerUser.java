@@ -323,6 +323,11 @@ public class ControllerUser {
 			itemStateChanged();
 		}
 		
+		else if (event.getSource() == btnAfficher) {
+			tfRech.clear();
+			initialize();
+		}
+		
 	}
 	
 	@FXML

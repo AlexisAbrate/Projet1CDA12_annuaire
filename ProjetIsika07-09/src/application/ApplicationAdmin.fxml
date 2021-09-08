@@ -222,7 +222,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnAfficher" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#initialize" prefHeight="28.0" prefWidth="31.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnAfficher" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="31.0" style="-fx-background-color: transparent;" text="Afficher" />
       <CheckBox fx:id="cbRecherche" layoutX="947.0" layoutY="19.0" mnemonicParsing="false" onAction="#itemStateChanged" text="Recherche élargie">
          <font>
             <Font name="System Bold" size="12.0" />

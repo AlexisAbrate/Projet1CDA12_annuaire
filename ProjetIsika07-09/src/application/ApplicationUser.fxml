@@ -42,7 +42,7 @@
             <DropShadow />
          </effect></Button>
       <TextField fx:id="tfRech" layoutX="352.0" layoutY="37.0" onAction="#itemStateChanged" onKeyPressed="#keyContact" prefHeight="26.0" prefWidth="436.0" style="-fx-background-radius: 2em;" />
-      <Button fx:id="btnAfficher" layoutX="326.0" layoutY="33.0" minWidth="0.0" mnemonicParsing="false" onAction="#initialize" prefHeight="32.0" prefWidth="0.0">
+      <Button fx:id="btnAfficher" layoutX="326.0" layoutY="33.0" minWidth="0.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="0.0">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
