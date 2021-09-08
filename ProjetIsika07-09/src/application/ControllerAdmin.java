@@ -1,5 +1,8 @@
 package application;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -144,6 +147,9 @@ public class ControllerAdmin {
 	private Button btnParametre;
 	
 	@FXML
+	private Button btnHelp;
+	
+	@FXML
 	private CheckMenuItem cbPrenomAdmin;
 	@FXML
 	private CheckMenuItem cbNomAdmin;
@@ -175,7 +181,7 @@ public class ControllerAdmin {
 			cbNomAdmin.setSelected(true);
 			cbGenreAdmin.setSelected(false);
 			cbAgeAdmin.setSelected(true);
-			cbAdresseAdmin.setSelected(false);
+			cbAdresseAdmin.setSelected(true);
 			cbMailAdmin.setSelected(true);
 			cbTelAdmin.setSelected(true);
 			cbThemeAdmin.setSelected(true);
@@ -184,9 +190,9 @@ public class ControllerAdmin {
 			
 			colPrenom.setVisible(true);
 			colNom.setVisible(true);
-			colGenre.setVisible(false);
+			colGenre.setVisible(true);
 			colAge.setVisible(true);
-			colAdresse.setVisible(false);
+			colAdresse.setVisible(true);
 			colMail.setVisible(true);
 			colTel.setVisible(true);
 			colTheme.setVisible(true);
@@ -517,6 +523,9 @@ public class ControllerAdmin {
 			initialize();
 		}
 		
+		else if (event.getSource() == btnHelp) {
+			afficherPdf();
+		}
 	}
 
 		
@@ -897,6 +906,28 @@ public void formatageStagiaire(Stagiaire ancienS) {
 		primaryStage.show();
 	}
 	
+	
+	private void afficherPdf() throws Exception {
+		
+		
+		if (Desktop.isDesktopSupported()) {
+			try {
+			File theUMFile = new File("FichierTxt/nu.pdf");
+			 Desktop.getDesktop().open(theUMFile);
+			}
+			catch (FileNotFoundException fnf){
+		
+			}
+			catch (IllegalArgumentException fnf) {
+			
+			        }
+			        catch (IOException ex) {
+			           
+			        }
+			    
+	}
+
+	}
 	
 }
 

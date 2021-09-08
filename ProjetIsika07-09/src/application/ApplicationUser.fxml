@@ -29,20 +29,30 @@
             <TableColumn fx:id="colDuree" minWidth="0.0" prefWidth="111.0" text="Date de fin" />
          </columns>
       </TableView>
-      <Button fx:id="btnRechercher" defaultButton="true" layoutX="807.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-radius: 3em;" text="Rechercher">
+      <Button fx:id="btnRechercher" defaultButton="true" layoutX="867.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="34.0" style="-fx-background-color: transparent;">
          <effect>
             <DropShadow />
-         </effect></Button>
-      <Button fx:id="btnConnecter" cancelButton="true" layoutX="44.0" layoutY="37.0" mnemonicParsing="false" onAction="#connexionUser" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 3em;" text="Connexion">
+         </effect>
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/lupe.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnConnecter" cancelButton="true" layoutX="44.0" layoutY="37.0" mnemonicParsing="false" onAction="#connexionUser" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 3em;" text="Connexion">
          <effect>
             <DropShadow />
-         </effect></Button>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Button fx:id="btnImprimer" layoutX="961.0" layoutY="642.0" mnemonicParsing="false" onAction="#imprimeTable" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 3em;" text="Imprimer">
          <effect>
             <DropShadow />
          </effect></Button>
-      <TextField fx:id="tfRech" layoutX="352.0" layoutY="37.0" onAction="#itemStateChanged" onKeyPressed="#keyContact" prefHeight="26.0" prefWidth="436.0" style="-fx-background-radius: 2em;" />
-      <Button fx:id="btnAfficher" layoutX="326.0" layoutY="33.0" minWidth="0.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="0.0">
+      <TextField fx:id="tfRech" layoutX="352.0" layoutY="37.0" onAction="#itemStateChanged" onKeyPressed="#keyContact" prefHeight="26.0" prefWidth="508.0" style="-fx-background-radius: 2em;" />
+      <Button fx:id="btnAfficher" layoutX="335.0" layoutY="33.0" minWidth="0.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="0.0">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -54,7 +64,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></CheckBox>
-      <MenuButton layoutX="172.0" layoutY="37.0" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Paramètres">
+      <MenuButton layoutX="144.0" layoutY="38.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 2em;" text="Paramètres">
         <items>
             <CheckMenuItem fx:id="cbPrenomAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Prénom" />
             <CheckMenuItem fx:id="cbNomAdmin" mnemonicParsing="false" onAction="#cbParametreAdmin" text="Nom" />
@@ -70,6 +80,17 @@
          <effect>
             <DropShadow />
          </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </MenuButton>
+      <Button fx:id="btnHelp" cancelButton="true" layoutX="253.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="50.0" style="-fx-background-radius: 3em;" text="Help">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

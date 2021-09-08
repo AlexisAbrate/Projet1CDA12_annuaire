@@ -164,7 +164,7 @@
          </padding>
       </VBox>
       <TextField fx:id="tfRech" layoutX="493.0" layoutY="13.0" onAction="#itemStateChanged" onKeyPressed="#keyContact" prefHeight="28.0" prefWidth="374.0" style="-fx-background-radius: 1em;" />
-      <Button fx:id="btnRechercher" defaultButton="true" layoutX="875.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="49.0" style="-fx-background-radius: 3em;" text="Rech">
+      <Button fx:id="btnRechercher" defaultButton="true" layoutX="875.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: transparent;">
          <effect>
             <DropShadow />
          </effect>
@@ -222,7 +222,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnAfficher" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="31.0" style="-fx-background-color: transparent;" text="Afficher" />
+      <Button fx:id="btnAfficher" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="31.0" style="-fx-background-color: transparent;" text="Afficher">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/pngegg.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <CheckBox fx:id="cbRecherche" layoutX="947.0" layoutY="19.0" mnemonicParsing="false" onAction="#itemStateChanged" text="Recherche élargie">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -254,12 +261,7 @@
             <DropShadow />
          </effect>
       </MenuButton>
-      <ImageView fitHeight="29.0" fitWidth="24.0" layoutX="448.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/pngegg.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="235.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Help">
+      <Button fx:id="btnHelp" layoutX="235.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-radius: 2em;" text="Help">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -273,5 +275,10 @@
          <effect>
             <DropShadow />
          </effect></Button>
+      <ImageView fitHeight="17.0" fitWidth="18.0" layoutX="881.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/lupe.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
