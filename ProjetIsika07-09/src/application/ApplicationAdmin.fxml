@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #7FAFED;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerAdmin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: linear-gradient(to bottom, #8ee4fe, #75cff2, #5eb9e6, #4ba4d9, #3c8ecb, #367dbb, #316cab, #2d5b9b, #284c87, #223d73, #1b2e60, #13214d);;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerAdmin">
    <children>
       <TableView fx:id="tvStagiaire" layoutX="312.0" layoutY="58.0" onMouseClicked="#choixContact" prefHeight="558.0" prefWidth="756.0">
          <columns>
@@ -33,76 +33,106 @@
             <TableColumn fx:id="colDuree" maxWidth="98.0" minWidth="0.0" prefWidth="70.0" text="Date de fin" />
          </columns>
       </TableView>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="142.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Prenom" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="142.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Prenom" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="90.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Nom" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="90.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Nom" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="195.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Genre" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="195.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Genre" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="297.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Adresse" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="297.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Adresse" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="29.0" layoutY="351.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="82.0" text="Mail" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="29.0" layoutY="351.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="82.0" text="Mail" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="246.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Age" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="246.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Age" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="465.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Theme" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="465.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Theme" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="518.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date debut" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="518.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date debut" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="567.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date duree" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="567.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Date duree" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
-      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="407.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Tel." textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
+      <Label contentDisplay="CENTER" layoutX="28.0" layoutY="407.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="84.0" text="Tel." textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <padding>
             <Insets right="20.0" />
-         </padding></Label>
+         </padding>
+         <effect>
+            <DropShadow height="15.07" radius="7.035" width="15.07" />
+         </effect></Label>
       <VBox alignment="CENTER" layoutX="92.0" layoutY="60.0" prefHeight="581.0" prefWidth="195.0">
          <children>
             <TextField fx:id="tfNom" prefHeight="25.0" prefWidth="249.0" style="-fx-background-radius: 1em;">
@@ -164,7 +194,7 @@
          </padding>
       </VBox>
       <TextField fx:id="tfRech" layoutX="493.0" layoutY="13.0" onAction="#itemStateChanged" onKeyPressed="#keyContact" prefHeight="28.0" prefWidth="374.0" style="-fx-background-radius: 1em;" />
-      <Button fx:id="btnRechercher" defaultButton="true" layoutX="875.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: transparent;">
+      <Button fx:id="btnRechercher" defaultButton="true" layoutX="875.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="49.0" style="-fx-background-radius: 3em;" text="Rech">
          <effect>
             <DropShadow />
          </effect>
@@ -222,7 +252,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnAfficher" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="31.0" style="-fx-background-color: transparent;" text="Afficher">
+      <Button fx:id="btnAfficher" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="31.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -275,10 +305,5 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <ImageView fitHeight="17.0" fitWidth="18.0" layoutX="881.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/lupe.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

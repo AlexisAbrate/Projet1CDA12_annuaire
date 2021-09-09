@@ -46,21 +46,36 @@ public class Stagiaire implements Serializable, Comparable<Stagiaire> {
         }
     };
 	
-public Boolean recherche(String recherche) {
+public Boolean recherche(String rech) {
 		
-		if (prenom.equals(recherche) || nom.equals(recherche) || genre.equals(recherche) || age.equals(recherche)
-				|| adresse.equals(recherche) || mail.equals(recherche) || tel.equals(recherche) 
-				|| formation.equals(recherche) || debutFormation.equals(recherche) || finFormation.equals(recherche)) {
+	String recherche = rech.toLowerCase();
+	
+	String p = prenom.toLowerCase();
+	String n = nom.toLowerCase();
+	String f = formation.toLowerCase();
+	String a = adresse.toLowerCase();
+	
+	
+		if (p.equals(recherche) || n.equals(recherche) || genre.equals(recherche) || age.equals(recherche)
+				|| a.equals(recherche) || mail.equals(recherche) || tel.equals(recherche) 
+				|| f.equals(recherche) || debutFormation.equals(recherche) || finFormation.equals(recherche)) {
 			return true;
 		}
 		else { return false; }
 	}
 
-	public Boolean rechercheLarge(String recherche) {
+	public Boolean rechercheLarge(String rech) {
 		
-		if (prenom.contains(recherche) || nom.contains(recherche) || genre.contains(recherche) || 
-				age.contains(recherche) || adresse.contains(recherche) || mail.contains(recherche)  || 
-				tel.contains(recherche) || formation.contains(recherche) || debutFormation.contains(recherche)  
+		String recherche = rech.toLowerCase();
+		
+		String p = prenom.toLowerCase();
+		String n = nom.toLowerCase();
+		String f = formation.toLowerCase();
+		String a = adresse.toLowerCase();
+		
+		if (p.contains(recherche) || n.contains(recherche) || genre.contains(recherche) || 
+				age.contains(recherche) || a.contains(recherche) || mail.contains(recherche)  || 
+				tel.contains(recherche) || f.contains(recherche) || debutFormation.contains(recherche)  
 				|| finFormation.contains(recherche) ) {
 			return true;
 		}

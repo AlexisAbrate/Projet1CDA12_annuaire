@@ -130,7 +130,7 @@ public class ControllerUser {
 			
 			cbPrenomAdmin.setSelected(true);
 			cbNomAdmin.setSelected(true);
-			cbGenreAdmin.setSelected(false);
+			cbGenreAdmin.setSelected(true);
 			cbAgeAdmin.setSelected(true);
 			cbAdresseAdmin.setSelected(true);
 			cbMailAdmin.setSelected(true);

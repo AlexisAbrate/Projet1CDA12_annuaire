@@ -6,7 +6,7 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="741.0" style="-fx-background-color: #7FAFED;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerPrint">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="741.0" style="-fx-background-color: linear-gradient(to bottom, #8ee4fe, #75cff2, #5eb9e6, #4ba4d9, #3c8ecb, #367dbb, #316cab, #2d5b9b, #284c87, #223d73, #1b2e60, #13214d);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerPrint">
    <children>
       <TableView fx:id="tvStagiaire" layoutX="22.0" layoutY="31.0" prefHeight="604.0" prefWidth="702.0">
          <columns>
